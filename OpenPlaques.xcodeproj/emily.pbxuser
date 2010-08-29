@@ -1,0 +1,957 @@
+// !$*UTF8*$!
+{
+	1D3623240D0F684500981E51 /* OpenPlaquesAppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1109, 819}}";
+			sepNavSelRange = "{1907, 0}";
+			sepNavVisRange = "{238, 1738}";
+			sepNavWindowFrame = "{{19, 91}, {1149, 782}}";
+		};
+	};
+	1D3623250D0F684500981E51 /* OpenPlaquesAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1109, 9178}}";
+			sepNavSelRange = "{11488, 0}";
+			sepNavVisRange = "{10960, 1606}";
+			sepNavWindowFrame = "{{65, 49}, {1149, 782}}";
+		};
+	};
+	1D6058900D05DD3D006BFB54 /* openplaques */ = {
+		activeExec = 0;
+		executables = (
+			A192FAE7120DDB33000D15AD /* openplaques */,
+		);
+	};
+	28C3AD890F43EF2300507BA6 /* OpenPlaques.xcdatamodel */ = {
+		uiCtxt = {
+			"Xdesign Model Editor Bookmark Key" = {
+				UIContextForDetailArea = {
+					_indexOfSelectedPane = 0;
+					_indexOfSelectedView = 1;
+				};
+				UIContextForEntityArea = {
+					_indexOfSelectedView = 0;
+					chosenTableColumnns = (
+						"ET Entity",
+						"ET Abstract",
+						"ET Class",
+					);
+					chosenTableColumnns_sortDirections = (
+						YES,
+					);
+					chosenTableColumnns_sortKeys = (
+						name,
+					);
+					chosenTableColumnns_sortSelectors = (
+						"_xdcaseInsensitiveNumericCompare:",
+					);
+					chosenTableWidths = (
+						103.000000,
+						22.000000,
+						99.080078,
+					);
+				};
+				UIContextForLayoutManager = {
+					detailSplitGeometry = {
+						_collapsingFrameDimension = 0;
+						_indexOfCollapsedView = 0;
+						_percentageOfCollapsedView = 0;
+						isCollapsed = yes;
+						sizes = (
+							"{{0, 0}, {762, 220}}",
+							"{{767, 0}, {401, 220}}",
+						);
+					};
+					diagramSplitGeometry = {
+						_collapsingFrameDimension = 0;
+						_indexOfCollapsedView = 0;
+						_percentageOfCollapsedView = 0;
+						isCollapsed = yes;
+						sizes = (
+							"{{0, 0}, {1168, 220}}",
+							"{{0, 225}, {1168, 443}}",
+						);
+					};
+					tableSplitGeometry = {
+						_collapsingFrameDimension = 0;
+						_indexOfCollapsedView = 0;
+						_percentageOfCollapsedView = 0;
+						isCollapsed = yes;
+						sizes = (
+							"{{0, 0}, {249, 220}}",
+							"{{254, 0}, {506, 220}}",
+						);
+					};
+				};
+				UIContextForPropertyArea = {
+					_indexOfSelectedView = 0;
+					chosenTableColumnnFRTs = (
+						"FT Fetch Request",
+						"FT Predicate",
+					);
+					chosenTableColumnnFRTs_sortDirections = (
+						YES,
+					);
+					chosenTableColumnnFRTs_sortKeys = (
+						name,
+					);
+					chosenTableColumnnFRTs_sortSelectors = (
+						"_xdcaseInsensitiveNumericCompare:",
+					);
+					chosenTableColumnnsAT = (
+						"AT Attribute",
+						"AT Type",
+					);
+					chosenTableColumnnsAT_sortDirections = (
+						YES,
+					);
+					chosenTableColumnnsAT_sortKeys = (
+						name,
+					);
+					chosenTableColumnnsAT_sortSelectors = (
+						"_xdcaseInsensitiveNumericCompare:",
+					);
+					chosenTableColumnnsFPT = (
+						"FP FetchedProperty",
+						"FP Destination",
+						"FP Predicate",
+					);
+					chosenTableColumnnsFPT_sortDirections = (
+						YES,
+					);
+					chosenTableColumnnsFPT_sortKeys = (
+						name,
+					);
+					chosenTableColumnnsFPT_sortSelectors = (
+						"_xdcaseInsensitiveNumericCompare:",
+					);
+					chosenTableColumnnsPT = (
+						"PT Property",
+						"PT Kind",
+						"PT SharedKeyOne",
+					);
+					chosenTableColumnnsPT_sortDirections = (
+						YES,
+					);
+					chosenTableColumnnsPT_sortKeys = (
+						name,
+					);
+					chosenTableColumnnsPT_sortSelectors = (
+						"_xdcaseInsensitiveNumericCompare:",
+					);
+					chosenTableColumnnsRT = (
+						"RT Relationship",
+						"RT Destination",
+					);
+					chosenTableColumnnsRT_sortDirections = (
+						YES,
+					);
+					chosenTableColumnnsRT_sortKeys = (
+						name,
+					);
+					chosenTableColumnnsRT_sortSelectors = (
+						"_xdcaseInsensitiveNumericCompare:",
+					);
+					chosenTableWidthsAT = (
+						128.000000,
+						64.000000,
+					);
+					chosenTableWidthsFPT = (
+						128.000000,
+						64.000000,
+						144.764160,
+					);
+					chosenTableWidthsFRT = (
+						128.000000,
+						249.764160,
+					);
+					chosenTableWidthsPT = (
+						128.000000,
+						108.110840,
+						243.570801,
+					);
+					chosenTableWidthsRT = (
+						128.000000,
+						64.000000,
+					);
+				};
+				"xdesign model browser state key - shown/hidden" = 1;
+				"xdesign model diagram view visible rect key" = "{{-228, -7}, {1153, 428}}";
+			};
+			sepNavWindowFrame = "{{42, 70}, {1149, 782}}";
+		};
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Release;
+		activeExecutable = A192FAE7120DDB33000D15AD /* openplaques */;
+		activeSDKPreference = iphonesimulator4.0;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* openplaques */;
+		addToTargets = (
+			1D6058900D05DD3D006BFB54 /* openplaques */,
+		);
+		breakpoints = (
+			A1A3330A1211CFA000F07720 /* MapViewController.m:113 */,
+			A1A333D312169A5C00F07720 /* MapViewController.m:182 */,
+			A13432E11220047800680410 /* MapViewController.m:204 */,
+			A13432EE1220049D00680410 /* MapViewController.m:204 */,
+			A134342112201AD100680410 /* PlaqueViewController.m:72 */,
+			A134344112201CE300680410 /* MapViewController.m:30 */,
+			A134344312201CFB00680410 /* MapViewController.m:98 */,
+			A134344512201D0300680410 /* MapViewController.m:151 */,
+			A17BDE3D1225A7F300E0564A /* MapViewController.m:152 */,
+			A17BDFDE1226E50900E0564A /* OpenPlaquesAppDelegate.m:366 */,
+			A17BDFE01226E51500E0564A /* OpenPlaquesAppDelegate.m:692 */,
+			A17BDFEE1226E56400E0564A /* OpenPlaquesAppDelegate.m:398 */,
+		);
+		codeSenseManager = A192FB0B120DDB52000D15AD /* Code sense */;
+		executables = (
+			A192FAE7120DDB33000D15AD /* openplaques */,
+		);
+		perUserDictionary = {
+			"PBXConfiguration.PBXBreakpointsDataSource.v1:1CA1AED706398EBD00589147" = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXBreakpointsDataSource_BreakpointID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					20,
+					198,
+					20,
+					99,
+					99,
+					29,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXBreakpointsDataSource_ActionID,
+					PBXBreakpointsDataSource_TypeID,
+					PBXBreakpointsDataSource_BreakpointID,
+					PBXBreakpointsDataSource_UseID,
+					PBXBreakpointsDataSource_LocationID,
+					PBXBreakpointsDataSource_ConditionID,
+					PBXBreakpointsDataSource_IgnoreCountID,
+					PBXBreakpointsDataSource_ContinueID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = 1;
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					931,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					891,
+					60,
+					20,
+					48,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 304776358;
+			PBXWorkspaceStateSaveDate = 304776358;
+		};
+		perUserProjectItems = {
+			A121BBBF122A84B300997BAD /* PBXTextBookmark */ = A121BBBF122A84B300997BAD /* PBXTextBookmark */;
+			A13433F51220191600680410 = A13433F51220191600680410 /* PBXBookmark */;
+			A13436051223369600680410 = A13436051223369600680410 /* XDModelBookmark */;
+			A164CF2A122A7D0E003A9109 = A164CF2A122A7D0E003A9109 /* PBXTextBookmark */;
+			A164CF3C122A7E0C003A9109 = A164CF3C122A7E0C003A9109 /* PBXTextBookmark */;
+			A164CF3D122A7E0C003A9109 = A164CF3D122A7E0C003A9109 /* PBXTextBookmark */;
+			A164CF60122A7FC6003A9109 = A164CF60122A7FC6003A9109 /* PBXTextBookmark */;
+			A164CF61122A7FC6003A9109 = A164CF61122A7FC6003A9109 /* PBXTextBookmark */;
+			A164CF67122A80D5003A9109 = A164CF67122A80D5003A9109 /* PBXTextBookmark */;
+			A17BDF061225C18200E0564A = A17BDF061225C18200E0564A /* PBXTextBookmark */;
+			A17BDF671226ABA800E0564A = A17BDF671226ABA800E0564A /* PBXTextBookmark */;
+			A17BDF691226ABA800E0564A = A17BDF691226ABA800E0564A /* PBXTextBookmark */;
+			A17BE0C91227E13800E0564A = A17BE0C91227E13800E0564A /* PBXTextBookmark */;
+			A17BE1C212290E4F00E0564A = A17BE1C212290E4F00E0564A /* PBXTextBookmark */;
+			A17DCB6C12291740001AF56D = A17DCB6C12291740001AF56D /* PBXTextBookmark */;
+			A17DCB6D12291740001AF56D = A17DCB6D12291740001AF56D /* PBXTextBookmark */;
+			A19C0C04122977EF00A026D0 = A19C0C04122977EF00A026D0 /* PBXTextBookmark */;
+			A19C0C57122A637900A026D0 = A19C0C57122A637900A026D0 /* PBXTextBookmark */;
+			A19C0C58122A637900A026D0 = A19C0C58122A637900A026D0 /* PlistBookmark */;
+			A1A3340C12169DE100F07720 = A1A3340C12169DE100F07720 /* PBXTextBookmark */;
+			A1A334C6121AF8D500F07720 = A1A334C6121AF8D500F07720 /* PBXTextBookmark */;
+			A1A334D1121AFABD00F07720 = A1A334D1121AFABD00F07720 /* PBXBookmark */;
+			A1A334D2121AFABD00F07720 = A1A334D2121AFABD00F07720 /* PBXBookmark */;
+			A1A334D3121AFABD00F07720 = A1A334D3121AFABD00F07720 /* PBXBookmark */;
+			A1A334D4121AFABD00F07720 = A1A334D4121AFABD00F07720 /* PBXBookmark */;
+			A1A334D5121AFABD00F07720 = A1A334D5121AFABD00F07720 /* PBXBookmark */;
+			A1A3367C121B35C700F07720 = A1A3367C121B35C700F07720 /* PBXTextBookmark */;
+			A1F84A13122A816300607E3F = A1F84A13122A816300607E3F /* PBXTextBookmark */;
+		};
+		sourceControlManager = A192FB0A120DDB52000D15AD /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	29B97316FDCFA39411CA2CEA /* main.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1167, 670}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 362}";
+		};
+	};
+	32CA4F630368D1EE00C91783 /* openplaques_Prefix.pch */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1109, 638}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 362}";
+		};
+	};
+	8D1107310486CEB800E47090 /* openplaques-Info.plist */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{19, 91}, {1149, 782}}";
+		};
+	};
+	A121BBBF122A84B300997BAD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A192FB11120DDB73000D15AD /* PlaqueVO.m */;
+		name = "PlaqueVO.m: 17";
+		rLen = 0;
+		rLoc = 327;
+		rType = 0;
+		vrLen = 1271;
+		vrLoc = 161;
+	};
+	A13432E11220047800680410 /* MapViewController.m:204 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = A192FB0D120DDB73000D15AD /* MapViewController.m */;
+		functionName = "-addAnnotations:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 204;
+		location = OpenPlaques;
+		modificationTime = 304539260.1147121;
+		originalNumberOfMultipleMatches = 1;
+		state = 2;
+	};
+	A13432EE1220049D00680410 /* MapViewController.m:204 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = A192FB0D120DDB73000D15AD /* MapViewController.m */;
+		functionName = "-addAnnotations:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 204;
+		location = OpenPlaques;
+		modificationTime = 304539260.114845;
+		originalNumberOfMultipleMatches = 1;
+		state = 2;
+	};
+	A13433F51220191600680410 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = A1A334BC121AF8B600F07720 /* stone_pin.jpg */;
+	};
+	A134342112201AD100680410 /* PlaqueViewController.m:72 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = A1A334E4121B01A100F07720 /* PlaqueViewController.m */;
+		functionName = "-viewDidLoad";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 72;
+		location = OpenPlaques;
+		modificationTime = 304539260.115;
+		originalNumberOfMultipleMatches = 1;
+		state = 2;
+	};
+	A134344112201CE300680410 /* MapViewController.m:30 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = A192FB0D120DDB73000D15AD /* MapViewController.m */;
+		functionName = "-viewDidLoad";
+		hitCount = 1;
+		ignoreCount = 0;
+		lineNumber = 30;
+		location = OpenPlaques;
+		modificationTime = 304539304.933874;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	A134344312201CFB00680410 /* MapViewController.m:98 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = A192FB0D120DDB73000D15AD /* MapViewController.m */;
+		functionName = "-mapView:viewForAnnotation:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 98;
+		location = OpenPlaques;
+		modificationTime = 304539260.1152431;
+		originalNumberOfMultipleMatches = 1;
+		state = 2;
+	};
+	A134344512201D0300680410 /* MapViewController.m:151 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = A192FB0D120DDB73000D15AD /* MapViewController.m */;
+		functionName = "-locationManager:didUpdateToLocation:fromLocation:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 151;
+		location = OpenPlaques;
+		modificationTime = 304539260.115377;
+		originalNumberOfMultipleMatches = 1;
+		state = 2;
+	};
+	A13436051223369600680410 /* XDModelBookmark */ = {
+		isa = XDModelBookmark;
+		fRef = 28C3AD890F43EF2300507BA6 /* OpenPlaques.xcdatamodel */;
+		fallbackIsa = PBXBookmark;
+	};
+	A164CF2A122A7D0E003A9109 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A17BE0A41227DF4F00E0564A /* PlaqueDetailViewController.m */;
+		name = "PlaqueDetailViewController.m: 138";
+		rLen = 0;
+		rLoc = 6025;
+		rType = 0;
+		vrLen = 1531;
+		vrLoc = 5543;
+	};
+	A164CF3C122A7E0C003A9109 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A17BDF3C1225C8AB00E0564A /* MapViewController.m */;
+		name = "MapViewController.m: 187";
+		rLen = 0;
+		rLoc = 5082;
+		rType = 0;
+		vrLen = 1229;
+		vrLoc = 4334;
+	};
+	A164CF3D122A7E0C003A9109 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A192FB10120DDB73000D15AD /* PlaqueVO.h */;
+		name = "PlaqueVO.h: 27";
+		rLen = 0;
+		rLoc = 514;
+		rType = 0;
+		vrLen = 1102;
+		vrLoc = 0;
+	};
+	A164CF60122A7FC6003A9109 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* OpenPlaquesAppDelegate.m */;
+		name = "OpenPlaquesAppDelegate.m: 394";
+		rLen = 0;
+		rLoc = 11488;
+		rType = 0;
+		vrLen = 1606;
+		vrLoc = 10960;
+	};
+	A164CF61122A7FC6003A9109 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* OpenPlaquesAppDelegate.h */;
+		name = "OpenPlaquesAppDelegate.h: 60";
+		rLen = 0;
+		rLoc = 1907;
+		rType = 0;
+		vrLen = 1738;
+		vrLoc = 238;
+	};
+	A164CF67122A80D5003A9109 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A192FB11120DDB73000D15AD /* PlaqueVO.m */;
+		name = "PlaqueVO.m: 17";
+		rLen = 0;
+		rLoc = 327;
+		rType = 0;
+		vrLen = 1306;
+		vrLoc = 161;
+	};
+	A17BDE3D1225A7F300E0564A /* MapViewController.m:152 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = A192FB0D120DDB73000D15AD /* MapViewController.m */;
+		functionName = "-locationManager:didUpdateToLocation:fromLocation:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 152;
+		location = OpenPlaques;
+		modificationTime = 304539260.115507;
+		originalNumberOfMultipleMatches = 1;
+		state = 2;
+	};
+	A17BDF061225C18200E0564A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A1C229CB122586B6006E7929 /* SplashViewController.h */;
+		name = "SplashViewController.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 237;
+		vrLoc = 0;
+	};
+	A17BDF3C1225C8AB00E0564A /* MapViewController.m */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.objc;
+		name = MapViewController.m;
+		path = /Users/emily/Development/iphone/OpenPlaquesProject/Classes/MapViewController.m;
+		sourceTree = "<absolute>";
+	};
+	A17BDF671226ABA800E0564A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 32CA4F630368D1EE00C91783 /* openplaques_Prefix.pch */;
+		name = "OpenPlaques_Prefix.pch: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 362;
+		vrLoc = 0;
+	};
+	A17BDF691226ABA800E0564A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A1A33530121B0C2E00F07720 /* asyncimageview.m */;
+		name = "asyncimageview.m: 31";
+		rLen = 0;
+		rLoc = 944;
+		rType = 0;
+		vrLen = 1991;
+		vrLoc = 816;
+	};
+	A17BDFDE1226E50900E0564A /* OpenPlaquesAppDelegate.m:366 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 1D3623250D0F684500981E51 /* OpenPlaquesAppDelegate.m */;
+		functionName = "-isInDisplayableLocation:";
+		hitCount = 6;
+		ignoreCount = 0;
+		lineNumber = 366;
+		location = OpenPlaques;
+		modificationTime = 304539300.957492;
+		originalNumberOfMultipleMatches = 1;
+		state = 2;
+	};
+	A17BDFE01226E51500E0564A /* OpenPlaquesAppDelegate.m:692 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 1D3623250D0F684500981E51 /* OpenPlaquesAppDelegate.m */;
+		functionName = "-locationManager:didUpdateToLocation:fromLocation:";
+		hitCount = 3;
+		ignoreCount = 0;
+		lineNumber = 692;
+		location = OpenPlaques;
+		modificationTime = 304539277.726389;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	A17BDFEE1226E56400E0564A /* OpenPlaquesAppDelegate.m:398 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 1D3623250D0F684500981E51 /* OpenPlaquesAppDelegate.m */;
+		functionName = "-retrieveData";
+		hitCount = 3;
+		ignoreCount = 0;
+		lineNumber = 398;
+		location = OpenPlaques;
+		modificationTime = 304539284.519686;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	A17BE0A31227DF4F00E0564A /* PlaqueDetailViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1109, 637}}";
+			sepNavSelRange = "{1203, 0}";
+			sepNavVisRange = "{0, 1282}";
+		};
+	};
+	A17BE0A41227DF4F00E0564A /* PlaqueDetailViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1109, 4563}}";
+			sepNavSelRange = "{6025, 0}";
+			sepNavVisRange = "{5543, 1531}";
+			sepNavWindowFrame = "{{42, 70}, {1149, 782}}";
+		};
+	};
+	A17BE0C91227E13800E0564A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A192FB0E120DDB73000D15AD /* PlaqueAnnotation.h */;
+		name = "PlaqueAnnotation.h: 27";
+		rLen = 0;
+		rLoc = 657;
+		rType = 0;
+		vrLen = 665;
+		vrLoc = 0;
+	};
+	A17BE1C212290E4F00E0564A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A1A335B4121B25C500F07720 /* CXMLNode.h */;
+		name = "CXMLNode.h: 32";
+		rLen = 0;
+		rLoc = 1256;
+		rType = 0;
+		vrLen = 1818;
+		vrLoc = 0;
+	};
+	A17DCB6C12291740001AF56D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A1C229CC122586B6006E7929 /* SplashViewController.m */;
+		name = "SplashViewController.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1354;
+		vrLoc = 46;
+	};
+	A17DCB6D12291740001AF56D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A17BE0A31227DF4F00E0564A /* PlaqueDetailViewController.h */;
+		name = "PlaqueDetailViewController.h: 38";
+		rLen = 0;
+		rLoc = 1203;
+		rType = 0;
+		vrLen = 1282;
+		vrLoc = 0;
+	};
+	A192FAE7120DDB33000D15AD /* openplaques */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = openplaques;
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+		};
+	};
+	A192FB0A120DDB52000D15AD /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	A192FB0B120DDB52000D15AD /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	A192FB0C120DDB73000D15AD /* MapViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1109, 657}}";
+			sepNavSelRange = "{413, 0}";
+			sepNavVisRange = "{0, 549}";
+			sepNavWindowFrame = "{{19, 91}, {1149, 782}}";
+		};
+	};
+	A192FB0D120DDB73000D15AD /* MapViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {720, 2665}}";
+			sepNavSelRange = "{5458, 0}";
+			sepNavVisRange = "{4697, 614}";
+			sepNavWindowFrame = "{{19, 91}, {1149, 782}}";
+		};
+	};
+	A192FB0E120DDB73000D15AD /* PlaqueAnnotation.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1109, 615}}";
+			sepNavSelRange = "{657, 0}";
+			sepNavVisRange = "{0, 665}";
+		};
+	};
+	A192FB0F120DDB73000D15AD /* PlaqueAnnotation.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1109, 657}}";
+			sepNavSelRange = "{353, 6}";
+			sepNavVisRange = "{0, 397}";
+		};
+	};
+	A192FB10120DDB73000D15AD /* PlaqueVO.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1109, 631}}";
+			sepNavSelRange = "{514, 0}";
+			sepNavVisRange = "{0, 1102}";
+			sepNavWindowFrame = "{{19, 91}, {1149, 782}}";
+		};
+	};
+	A192FB11120DDB73000D15AD /* PlaqueVO.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1109, 1092}}";
+			sepNavSelRange = "{327, 0}";
+			sepNavVisRange = "{161, 1271}";
+			sepNavWindowFrame = "{{19, 91}, {1149, 782}}";
+		};
+	};
+	A19C0C04122977EF00A026D0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A192FB0F120DDB73000D15AD /* PlaqueAnnotation.m */;
+		name = "PlaqueAnnotation.m: 20";
+		rLen = 6;
+		rLoc = 353;
+		rType = 0;
+		vrLen = 397;
+		vrLoc = 0;
+	};
+	A19C0C57122A637900A026D0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A192FB0C120DDB73000D15AD /* MapViewController.h */;
+		name = "MapViewController.h: 18";
+		rLen = 0;
+		rLoc = 413;
+		rType = 0;
+		vrLen = 549;
+		vrLoc = 0;
+	};
+	A19C0C58122A637900A026D0 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = A19C0C3D122A4EDC00A026D0 /* Entitlements.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = /Users/emily/Development/iphone/OpenPlaquesProject/Entitlements.plist;
+		rLen = 0;
+		rLoc = 9223372036854775808;
+	};
+	A1A3330A1211CFA000F07720 /* MapViewController.m:113 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = A192FB0D120DDB73000D15AD /* MapViewController.m */;
+		functionName = "-mapView:viewForAnnotation:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 113;
+		location = OpenPlaques;
+		modificationTime = 304539260.114105;
+		originalNumberOfMultipleMatches = 1;
+		state = 2;
+	};
+	A1A333D312169A5C00F07720 /* MapViewController.m:182 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = A192FB0D120DDB73000D15AD /* MapViewController.m */;
+		functionName = "-addAnnotations:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 182;
+		location = OpenPlaques;
+		modificationTime = 304539260.114534;
+		originalNumberOfMultipleMatches = 1;
+		state = 2;
+	};
+	A1A3340C12169DE100F07720 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A1A3340D12169DE100F07720 /* MapViewController.m */;
+		name = "MapViewController.m: 54";
+		rLen = 0;
+		rLoc = 1401;
+		rType = 0;
+		vrLen = 1411;
+		vrLoc = 3488;
+	};
+	A1A3340D12169DE100F07720 /* MapViewController.m */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.objc;
+		name = MapViewController.m;
+		path = /Users/emily/Development/iphone/PlaqueLocation/Classes/MapViewController.m;
+		sourceTree = "<absolute>";
+	};
+	A1A334C6121AF8D500F07720 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 29B97316FDCFA39411CA2CEA /* main.m */;
+		name = "main.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 362;
+		vrLoc = 0;
+	};
+	A1A334D1121AFABD00F07720 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = A1A332811211C5D800F07720 /* orange_pin.png */;
+	};
+	A1A334D2121AFABD00F07720 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = A1A3327F1211C5D800F07720 /* gray_pin.png */;
+	};
+	A1A334D3121AFABD00F07720 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = A1A333981216967100F07720 /* icon.png */;
+	};
+	A1A334D4121AFABD00F07720 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = A1A3327D1211C5D800F07720 /* blue_pin.png */;
+	};
+	A1A334D5121AFABD00F07720 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = A1A334B6121AF8B600F07720 /* black_pin.jpg */;
+	};
+	A1A334E4121B01A100F07720 /* PlaqueViewController.m */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.objc;
+		name = PlaqueViewController.m;
+		path = /Users/emily/Development/iphone/OpenPlaquesProject/Classes/PlaqueViewController.m;
+		sourceTree = "<absolute>";
+	};
+	A1A3352F121B0C2E00F07720 /* asyncimageview.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1109, 647}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 798}";
+			sepNavWindowFrame = "{{19, 91}, {1149, 782}}";
+		};
+	};
+	A1A33530121B0C2E00F07720 /* asyncimageview.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1109, 1014}}";
+			sepNavSelRange = "{944, 0}";
+			sepNavVisRange = "{816, 1991}";
+		};
+	};
+	A1A335B4121B25C500F07720 /* CXMLNode.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1109, 1105}}";
+			sepNavSelRange = "{1256, 0}";
+			sepNavVisRange = "{0, 1818}";
+			sepNavWindowFrame = "{{88, 28}, {1149, 782}}";
+		};
+	};
+	A1A3367C121B35C700F07720 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A1A3352F121B0C2E00F07720 /* asyncimageview.h */;
+		name = "asyncimageview.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 798;
+		vrLoc = 0;
+	};
+	A1C229CB122586B6006E7929 /* SplashViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1109, 615}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 237}";
+		};
+	};
+	A1C229CC122586B6006E7929 /* SplashViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1109, 741}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{46, 1354}";
+		};
+	};
+	A1F84A13122A816300607E3F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A192FB11120DDB73000D15AD /* PlaqueVO.m */;
+		name = "PlaqueVO.m: 17";
+		rLen = 0;
+		rLoc = 327;
+		rType = 0;
+		vrLen = 1306;
+		vrLoc = 161;
+	};
+}
