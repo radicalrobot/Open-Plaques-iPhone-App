@@ -22,5 +22,6 @@
 
 - (void)loadImageFromURL:(NSURL*)url;
 - (UIImage*) image;
+-(void) setImage:(NSString *) img;
 
 @end

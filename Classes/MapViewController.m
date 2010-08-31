@@ -37,7 +37,7 @@
 				   @"purple_pin.jpg", @"purple", 
 				   @"gray_pin.png", @"grey", 
 				   @"green_pin.png", @"green",
-				   @"white_pin4.jpg", @"white", 
+				   @"white-pin.png", @"white", 
 				   @"claret_pin.jpg", @"claret",
 				   @"bronze_pin.jpg", @"bronze", 
 				   @"gold_pin.jpg", @"gold", 

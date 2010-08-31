@@ -280,7 +280,7 @@
 	
 	NSArray *nodes = [parser nodesForXPath:@"//photo" error:nil];
 	//	NSLog(@"there are %d nodes", [nodes count]);
-	
+	NSString *imgUrl = @"take-a-photo.png";
 	//loop through nodes
 	if([nodes count] > 0) 
 	{
@@ -295,18 +295,8 @@
 			//	NSLog(@"Attribite name %@:%@", [attribute name],[attribute stringValue]);
 			if([@"url_s" isEqualToString:[attribute name]])
 			{
-				NSString *imgUrl = [attribute stringValue];
-				//	NSLog(@"found url %@", imgUrl);
-				CGRect frame;
-				frame.size.width=280; frame.size.height=215;
-				frame.origin.x=20; frame.origin.y=10;
-				
-				[plaque setImgUrl:imgUrl];
-				plaqueImageView = [[[AsyncImageView alloc]initWithFrame:frame] autorelease];
-				plaqueImageView.tag = 999;
-				NSURL* url = [NSURL URLWithString:imgUrl];
-				[plaqueImageView loadImageFromURL:url];
-				[[self view] addSubview:plaqueImageView];
+				imgUrl = [attribute stringValue];				
+				[plaque setImgUrl:imgUrl];	
 			}
 			else if([@"ownername" isEqualToString:[attribute name]])
 			{
@@ -315,8 +305,28 @@
 				plaquePhotoOwnerLabel.text = [NSString stringWithFormat:@"Photo By: %@", [plaque ownerName]];
 			}
 		}
+		[self savePlaque];
 	}
-	[self savePlaque];
+		
+		
+	CGRect frame;
+	frame.size.width=280; frame.size.height=215;
+	frame.origin.x=20; frame.origin.y=10;
+	
+	plaqueImageView = [[[AsyncImageView alloc]initWithFrame:frame] autorelease];
+	plaqueImageView.tag = 999;
+	if([imgUrl hasPrefix:@"http"])
+	{
+		NSURL* url = [NSURL URLWithString:imgUrl];
+		[plaqueImageView loadImageFromURL:url];
+	}
+	else {
+		[plaqueImageView setImage:imgUrl];
+	}
+
+	[[self view] addSubview:plaqueImageView];
+	
+
 }
 
 -(void)savePlaque

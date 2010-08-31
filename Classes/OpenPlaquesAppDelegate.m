@@ -268,15 +268,6 @@
 		
 		PlaqueVO *plaque = [[PlaqueVO alloc]init];
 		
-		
-		// plaque photo url
-		/*NSArray *photos = [plaqueDetails objectForKey:@"photos"];
-		if([photos count] > 0)
-		{
-			NSDictionary *photo = [photos objectAtIndex:0];
-			[plaque setImgUrl:[photo objectForKey:@"url"]];
-		}*/
-		
 		// plaque colour
 		NSDictionary *colour = [plaqueDetails objectForKey:@"colour"];
 		[plaque setColour:[colour objectForKey:@"name"]];
@@ -325,9 +316,10 @@
 	}
 	[df release];
 	
-	[self createMap];
 	if(newPlaqueCount > 0)
 	{
+	//	NSLog(@"New plaque count = %d", newPlaqueCount);
+		[self createMap];
 		[self storeData];
 	}
 }
@@ -337,14 +329,14 @@
 	
 	if([navController visibleViewController] != nil)
 	{
-		//NSLog(@"Refreshing Map View");
+	//	NSLog(@"Refreshing Map View");
 		MapViewController *mvc = (MapViewController *)[navController visibleViewController];
 		[mvc refresh];
 		//NSLog(@"MapView Refreshed");
 	}
 	else 
 	{
-		//NSLog(@"createMap");
+	//	NSLog(@"createMap");
 		[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 		[spinner stopAnimating];
 		[spinner removeFromSuperview];
@@ -360,38 +352,6 @@
 		
 	}	
 }
-
-/*-(BOOL) isInDisplayableLocation:(CLLocation *) plaqueLocation
-{
-	//NSLog(@"isInDisplayableLocation");
-	BOOL isWithinBounds = NO;
-	if(plaqueLocation != nil)
-	{
-		int distanceFromLocation = 0;
-		
-		if([[[UIDevice currentDevice] systemVersion] isEqualToString:@"3.2"]
-		   || [[[UIDevice currentDevice] systemVersion] isEqualToString:@"4.0"]
-		   || [[[UIDevice currentDevice] systemVersion] isEqualToString:@"4.0.2"])
-			distanceFromLocation = [plaqueLocation distanceFromLocation:[locationManager location]];
-		else
-			distanceFromLocation = [plaqueLocation getDistanceFrom:[locationManager location]];
-		
-		
-		if(distanceFromLocation <= (50 * 1000))
-		{
-			//NSLog(@"%d <= 50,000", distanceFromLocation);
-			isWithinBounds = YES;
-		}
-		//else {
-			
-			//NSLog(@"%d > 50,000", distanceFromLocation);
-			//}
-
-		[plaqueLocation release];
-	}
-	
-	return isWithinBounds;
-}*/
 
 - (void) retrieveData
 {

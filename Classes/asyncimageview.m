@@ -74,4 +74,16 @@
 	return [iv image];
 }
 
+-(void) setImage:(NSString *) img
+{
+	UIImageView* imageView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:img]] autorelease];
+	//make sizing choices based on your needs, experiment with these. maybe not all the calls below are needed.
+	imageView.contentMode = UIViewContentModeScaleAspectFit;
+	imageView.autoresizingMask = ( UIViewAutoresizingFlexibleWidth || UIViewAutoresizingFlexibleHeight );
+	[self addSubview:imageView];
+	imageView.frame = self.bounds;
+	[imageView setNeedsLayout];
+	[self setNeedsLayout];
+}
+
 @end
