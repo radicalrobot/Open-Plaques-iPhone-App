@@ -48,31 +48,19 @@
 
 -(BOOL) isInDisplayableLocation:(CLLocation *) currentLocation
 {
-	
-	if(plaqueLocation == nil)
-	{
-		plaqueLocation = [[CLLocation alloc] initWithCoordinate:[self locationCoords] altitude:0 horizontalAccuracy:0 verticalAccuracy:0 timestamp:nil];	
-	}
-	//NSLog(@"isInDisplayableLocation");
 	BOOL isWithinBounds = NO;
-	if(plaqueLocation != nil)
+	
+	MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 100000.0, 100000.0);
+	CLLocationCoordinate2D northWestCorner, southEastCorner;
+	northWestCorner.latitude  = currentLocation.coordinate.latitude  - (region.span.latitudeDelta  / 2.0);
+	northWestCorner.longitude = currentLocation.coordinate.longitude + (region.span.longitudeDelta / 2.0);
+	southEastCorner.latitude  = currentLocation.coordinate.latitude  + (region.span.latitudeDelta  / 2.0);
+	southEastCorner.longitude = currentLocation.coordinate.longitude - (region.span.longitudeDelta / 2.0);
+	
+	if((locationCoords.latitude >= northWestCorner.latitude && locationCoords.latitude <= southEastCorner.latitude)
+		&& (locationCoords.longitude >= southEastCorner.longitude && locationCoords.longitude <= northWestCorner.longitude))
 	{
-		int distanceFromLocation = 0;
-		
-		if([[[UIDevice currentDevice] systemVersion] isEqualToString:@"3.2"]
-		   || [[[UIDevice currentDevice] systemVersion] isEqualToString:@"4.0"]
-		   || [[[UIDevice currentDevice] systemVersion] isEqualToString:@"4.0.2"])
-			distanceFromLocation = [plaqueLocation distanceFromLocation:currentLocation];
-		else
-			distanceFromLocation = [plaqueLocation getDistanceFrom:currentLocation];
-		
-		
-		if(distanceFromLocation <= (50 * 1000))
-		{
-			isWithinBounds = YES;
-		}
-		
-		[plaqueLocation release];
+		isWithinBounds = YES;
 	}
 	
 	return isWithinBounds;

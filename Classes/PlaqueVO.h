@@ -24,7 +24,6 @@
 	NSString *colour;
 	NSString *ownerName;
 	NSString *organization;
-	CLLocation *plaqueLocation;
 }
 
 @property (nonatomic, retain) NSString *inscription;

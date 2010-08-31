@@ -396,7 +396,7 @@
 - (void) retrieveData
 {
 	//NSLog(@"retrieveData");
-	//NSLog(@"Retrieving data");
+	//	NSLog(@"Retrieving data");
 	NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Plaque" inManagedObjectContext:[self managedObjectContext]];
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	[request setEntity:entityDescription];

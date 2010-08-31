@@ -229,8 +229,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -267,20 +265,22 @@
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>080E96DDFE201D6D7F000001</string>
-								<string>29B97315FDCFA39411CA2CEA</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
+								<string>29B97323FDCFA39411CA2CEA</string>
+								<string>19C28FACFE9D520D11CA2CBB</string>
 								<string>1C37FBAC04509CD000000102</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>21</integer>
+									<integer>11</integer>
+									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 221}, {244, 764}}</string>
+							<string>{{0, 0}, {244, 764}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -310,12 +310,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>PlaqueVO.m</string>
+								<string>OpenPlaquesAppDelegate.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -323,11 +325,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>PlaqueVO.m</string>
+										<string>OpenPlaquesAppDelegate.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>A121BBBF122A84B300997BAD</string>
+										<string>A121BC52122D844600997BAD</string>
 										<key>history</key>
 										<array>
 											<string>A1A3340C12169DE100F07720</string>
@@ -340,22 +342,22 @@
 											<string>A1A3367C121B35C700F07720</string>
 											<string>A13433F51220191600680410</string>
 											<string>A13436051223369600680410</string>
-											<string>A17BDF061225C18200E0564A</string>
 											<string>A17BDF671226ABA800E0564A</string>
 											<string>A17BDF691226ABA800E0564A</string>
 											<string>A17BE0C91227E13800E0564A</string>
 											<string>A17BE1C212290E4F00E0564A</string>
 											<string>A17DCB6C12291740001AF56D</string>
 											<string>A17DCB6D12291740001AF56D</string>
-											<string>A19C0C04122977EF00A026D0</string>
 											<string>A19C0C57122A637900A026D0</string>
 											<string>A19C0C58122A637900A026D0</string>
 											<string>A164CF2A122A7D0E003A9109</string>
 											<string>A164CF3C122A7E0C003A9109</string>
-											<string>A164CF3D122A7E0C003A9109</string>
-											<string>A164CF60122A7FC6003A9109</string>
 											<string>A164CF61122A7FC6003A9109</string>
-											<string>A1F84A13122A816300607E3F</string>
+											<string>A121BC48122D832100997BAD</string>
+											<string>A121BC4F122D844600997BAD</string>
+											<string>A121BC50122D844600997BAD</string>
+											<string>A121BC51122D844600997BAD</string>
+											<string>A121BC47122D832100997BAD</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -553,9 +555,11 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1C78EAAD065D492600B07095</string>
+		<string>A121BC05122D7AD300997BAD</string>
+		<string>A121BC06122D7AD300997BAD</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>A192FB1A120DDBA0000D15AD</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/emily/Development/iphone/OpenPlaquesProject/OpenPlaques.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -883,6 +887,8 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -895,7 +901,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1021, 625}}</string>
 								<key>RubberWindowFrame</key>
-								<string>244 155 1021 666 0 0 1440 878 </string>
+								<string>386 122 1021 666 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugCLIModule</string>
@@ -924,11 +930,11 @@
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.consoleV3</string>
 			<key>WindowString</key>
-			<string>244 155 1021 666 0 0 1440 878 </string>
+			<string>386 122 1021 666 0 0 1440 878 </string>
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>
