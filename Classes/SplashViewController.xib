@@ -217,14 +217,14 @@
 					<object class="IBUILabel" id="245440645">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{153, 428}, {85, 21}}</string>
+						<string key="NSFrame">{{153, 428}, {89, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">Lee Tucknot</string>
+						<string key="IBUIText">Lee Tucknott</string>
 						<reference key="IBUIFont" ref="55852125"/>
 						<reference key="IBUITextColor" ref="42149151"/>
 						<nil key="IBUIHighlightedColor"/>

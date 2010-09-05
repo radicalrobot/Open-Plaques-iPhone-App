@@ -233,7 +233,8 @@
 -(void) parsePlaques
 {
 //	NSLog(@"parsePlaques");
-	//(@"Parsing retrieved data as plaques");
+//(@"Parsing retrieved data as plaques");
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 	SBJSON *jsonParser = [[SBJSON alloc] init];
 	
 	NSString *jsonString = [[NSString alloc] 
@@ -532,7 +533,7 @@
 
 -(void)saveDataWithOperation{
 //	NSLog(@"saveDataWithOperation");
-	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];	NSError *error;
+	NSError *error;
 	int storedItems = 0;
 //	NSLog(@"storing %d plaques from list", [plaqueList count]);	
 	for(PlaqueVO *plaque in plaquesToSave)
@@ -545,7 +546,6 @@
 	[plaquesToSave release];
 	//NSLog(@"%d plaques stored", storedItems);	//NSLog(@"Setting last upload date to be %@", today);
 	
-	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 	
 	if(maxUploadDate == nil)
 	{
@@ -632,6 +632,8 @@
 		urlStr = [NSString stringWithFormat:@"%@?since=%@", kDataURL, maxUploadDate];
 	//NSLog(@"Requesting data from the API with url %@", urlStr);
 	
+	
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 	NSURL *url = [NSURL URLWithString:urlStr];
 	NSURLRequest *request = [[NSURLRequest alloc] 
 							 initWithURL:url];

@@ -29,24 +29,24 @@
 	//NSLog(@"viewDidLoad");
 	[self setTitle:@"Plaques Near You"];	
 	
-	colourList = [[NSDictionary dictionaryWithObjectsAndKeys:
-				   @"red_pin.jpg", @"red", 
+	/*colourList = [[NSDictionary dictionaryWithObjectsAndKeys:
+				   @"red", @"red", 
 				   @"blue_pin.png", @"blue", 
-				   @"black_pin.jpg", @"black", 
-				   @"brown_pin.jpg", @"brown", 
-				   @"purple_pin.jpg", @"purple", 
+				   @"black.png", @"black", 
+				   @"brown2.gif", @"brown", 
+				   @"purpleDot.jpg", @"purple", 
 				   @"gray_pin.png", @"grey", 
 				   @"green_pin.png", @"green",
 				   @"white-pin.png", @"white", 
 				   @"claret_pin.jpg", @"claret",
-				   @"bronze_pin.jpg", @"bronze", 
+				   @"bronze.png", @"bronze", 
 				   @"gold_pin.jpg", @"gold", 
 				   @"film_pin.jpg", @"film cell", 
-				   @"stone_pin.jpg", @"stone", 
-				   @"purple_mix.jpg", @"purple, white and green", 
+				   @"gray-pin.png", @"stone", 
+				   @"s_purple.gif", @"purple, white and green", 
 				   @"orange_pin.png", @"brass",
 				   @"yellow_pin.png", @"yellow",
-				   nil] retain];
+				   nil] retain];*/
 	
 	mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 460)];
 	
@@ -117,7 +117,9 @@
 			[pin addSubview:imageView];
 		}
 		else {
-			[pin setPinColor:MKPinAnnotationColorGreen];
+			UIImage * image = [UIImage imageNamed:@"blue_pin.png"];
+			UIImageView *imageView = [[[UIImageView alloc] initWithImage:image] autorelease];
+			[pin addSubview:imageView];
 		}
 
 		[pin setCanShowCallout:YES];
@@ -191,14 +193,14 @@
 		[ann setSubtitle:[plaque location]];
 		[ann setCoordinate:[plaque locationCoords]];
 		[ann setPlaqueId:[plaque plaqueId]];
-		NSString *colourId = [plaque colour];
+	/*	NSString *colourId = [plaque colour];
 		if(colourId != nil)
 		{
 			if([colourList objectForKey:colourId] != nil)
 			{
 				[ann setPinImg:[colourList objectForKey:colourId]];
 			}
-		}
+		}*/
 		
 		[mapView addAnnotation:ann];	
 		[ann release];

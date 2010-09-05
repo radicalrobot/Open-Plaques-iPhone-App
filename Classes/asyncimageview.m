@@ -29,7 +29,8 @@
 	if (connection!=nil) { [connection release]; } //in case we are downloading a 2nd image
 	if (data!=nil) { [data release]; }
 //	NSLog(@"Loading image from %@", url);
-
+	
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 	
 	NSURLRequest* request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
 	connection = [[NSURLConnection alloc] initWithRequest:request delegate:self]; //notice how delegate set to self object
@@ -54,6 +55,7 @@
 		[[[self subviews] objectAtIndex:0] removeFromSuperview]; //so remove it (releases it also)
 	}
 	
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 	//make an image view for the image
 	UIImageView* imageView = [[[UIImageView alloc] initWithImage:[UIImage imageWithData:data]] autorelease];
 	//make sizing choices based on your needs, experiment with these. maybe not all the calls below are needed.
