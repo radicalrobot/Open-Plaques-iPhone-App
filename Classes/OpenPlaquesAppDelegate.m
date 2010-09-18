@@ -19,7 +19,7 @@
 
 @implementation OpenPlaquesAppDelegate
 
-@synthesize window,plaqueList,navController, svc,locationManager;
+@synthesize window,plaqueList,navController, svc,locationManager, locationAllowed;
 
 
 #pragma mark -
@@ -37,29 +37,39 @@
 	[[svc view] setFrame:[[UIScreen mainScreen] applicationFrame]];	
 	[window addSubview:[svc view]];
 	
-	spinner = [[UIActivityIndicatorView alloc] 
-			   initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];	
-	[spinner startAnimating];
-
-	
-	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];	
-	[window setBackgroundColor:[UIColor darkGrayColor]];	
-	[window addSubview:spinner];
-	
-	CGRect appFrame = [[UIScreen mainScreen]applicationFrame];
-	int x = (appFrame.size.width/2) - 16;
-	int y = (appFrame.size.height/2) - 16;
-	[spinner setFrame:CGRectMake( x, y, 32, 32)];
-	
 	
 	plaqueList = [[NSMutableDictionary alloc] init];	
 	
-	locationManager = [[CLLocationManager alloc] init];
+	if([CLLocationManager locationServicesEnabled])
+	{
+		//NSLog(@"location manager location services enabled");
+		
+		
+		locationManager = [[CLLocationManager alloc] init];
+		//NSLog(@"location manager created");
+		
+		[locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+		[locationManager setDelegate:self];
+		
+		[locationManager startUpdatingLocation];
+	}
+	else 
+	{
+		//NSLog(@"location manager location services NOT enabled");
+		UIAlertView *alert = [[UIAlertView alloc] 
+							  initWithTitle:@"Location Manager" 
+							  message:@"This app requires location services that your device does not support. I'm really sorry." 
+							  delegate:nil 
+							  cancelButtonTitle:@"Understood" 
+							  otherButtonTitles:nil];
+		
+		[alert show];
+		[alert release]; 
+		[self createMap];
+	}
+
 	
-	[locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
-	[locationManager setDelegate:self];
-	[locationManager startUpdatingLocation];
-/* [self retrieveData];*/
+	/* [self retrieveData];*/
 	
 	return YES;
 }
@@ -78,8 +88,8 @@
         if ([managedObjectContext_ hasChanges] && ![managedObjectContext_ save:&error]) 
 		{
             UIAlertView *alert = [[UIAlertView alloc] 
-								  initWithTitle:@"Flickr API Error" 
-								  message:[NSString stringWithFormat:@"Unable to save app data changes. %@", [error description]]  
+								  initWithTitle:@"Data Save Error" 
+								  message:[NSString stringWithFormat:@"Unable to save app data changes"]  
 								  delegate:nil 
 								  cancelButtonTitle:@"OK" 
 								  otherButtonTitles:nil];
@@ -217,14 +227,15 @@
 -(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 	UIAlertView *alert = [[UIAlertView alloc] 
-						  initWithTitle:@"Flickr API Error" 
-						  message:[NSString stringWithFormat:@"No new data could be retrieved from Open Plaques at this time %@", [error description]]  
+						  initWithTitle:@"Open Plaques data connection Error" 
+						  message:@"No new data could be retrieved from Open Plaques at this time." 
 						  delegate:nil 
 						  cancelButtonTitle:@"OK" 
 						  otherButtonTitles:nil];
 	
 	[alert show];
 	[alert release];
+	[self createMap];
 }
 
 # pragma mark -
@@ -232,7 +243,7 @@
 
 -(void) parsePlaques
 {
-//	NSLog(@"parsePlaques");
+	//NSLog(@"parsePlaques");
 //(@"Parsing retrieved data as plaques");
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 	SBJSON *jsonParser = [[SBJSON alloc] init];
@@ -310,7 +321,8 @@
 		[plaque setPlaqueId:[plaqueDetails objectForKey:@"id"]];
 		
 		[plaquesToSave addObject:plaque];
-		if([plaque isInDisplayableLocation:[locationManager location]])
+		if([CLLocationManager locationServicesEnabled]
+		   && [plaque isInDisplayableLocation:[locationManager location]])
 			[plaqueList setObject:plaque forKey:[plaque plaqueId]];
 		[plaque release];	
 		++newPlaqueCount;
@@ -319,7 +331,7 @@
 	
 	if(newPlaqueCount > 0)
 	{
-	//	NSLog(@"New plaque count = %d", newPlaqueCount);
+		//NSLog(@"New plaque count = %d", newPlaqueCount);
 		[self createMap];
 		[self storeData];
 	}
@@ -330,19 +342,15 @@
 	
 	if([navController visibleViewController] != nil)
 	{
-	//	NSLog(@"Refreshing Map View");
+		//NSLog(@"Refreshing Map View");
 		MapViewController *mvc = (MapViewController *)[navController visibleViewController];
 		[mvc refresh];
 		//NSLog(@"MapView Refreshed");
 	}
 	else 
 	{
-	//	NSLog(@"createMap");
-		[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-		[spinner stopAnimating];
-		[spinner removeFromSuperview];
-		[spinner release];		
-		
+		//NSLog(@"createMap");
+		[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];		
 		MapViewController *mvc = [[MapViewController alloc]init];
 		[[mvc view] setFrame:[[UIScreen mainScreen] applicationFrame]];	
 		// Override point for customization after app launch  
@@ -357,6 +365,7 @@
 - (void) retrieveData
 {
 	//NSLog(@"retrieveData");
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];	
 	//	NSLog(@"Retrieving data");
 	NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Plaque" inManagedObjectContext:[self managedObjectContext]];
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -400,7 +409,8 @@
 			
 			
 			// only load up the plaques that are within 50kms of our current location
-			if([transformedObj isInDisplayableLocation:[locationManager location]])
+			if([CLLocationManager locationServicesEnabled]
+			   && [transformedObj isInDisplayableLocation:[locationManager location]])
 			{
 				[plaqueList setObject: transformedObj forKey:[transformedObj plaqueId]];
 			}
@@ -532,7 +542,7 @@
 }
 
 -(void)saveDataWithOperation{
-//	NSLog(@"saveDataWithOperation");
+	//NSLog(@"saveDataWithOperation");
 	NSError *error;
 	int storedItems = 0;
 //	NSLog(@"storing %d plaques from list", [plaqueList count]);	
@@ -571,7 +581,7 @@
 
 -(void) storeData:(PlaqueVO *)plaque
 {
-	//NSLog(@"Storing plaque %@", plaque);
+//	NSLog(@"Storing plaque %@", plaque);
 	NSError *error;
 		
 	int plaqueId = [[plaque plaqueId] intValue];
@@ -646,25 +656,69 @@
 	
 }
 
+-(BOOL) userHasAllowedLocationTracking
+{
+	return [self locationAllowed];
+}
+
 # pragma mark -
 # pragma mark CLLocationManager methods
 
 -(void) locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
-//	NSLog(@"didUpdateToLocation");
+	//NSLog(@"didUpdateToLocation");
+	locationAllowed = YES;
 	//NSLog(@"MapViewController didUpdateToLocation");
+	
+	//[locationManager 
+	
 	[locationManager stopUpdatingLocation];
 	currentLocation = newLocation;
 	
+	if(!dataRetrievalRequested)
+	{
+		NSOperationQueue *queue = [NSOperationQueue new];
+		NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self
+																				selector:@selector(retrieveData)
+																				  object:nil];
+		
+		[queue addOperation:operation];
+		[operation release];	
+		[queue release];
+		dataRetrievalRequested = YES;
+	}
+}
+
+- (void)locationManager:(CLLocationManager*)aManager didFailWithError:(NSError*)anError
+{
+	NSString *message = nil;
+    switch([anError code])
+    {
+		case kCLErrorLocationUnknown: // location is currently unknown, but CL will keep trying
+			break;
+			
+		case kCLErrorDenied: // CL access has been denied (eg, user declined location use)
+			message = @"Sorry, Open Plaques has to know your location in order to work. You will not be able to see any plaques";
+			break;
+			
+		case kCLErrorNetwork: // general, network-related error
+			message = @"Open Plaques can't find you - please check your network connection or that you are not in airplane mode";
+    }
 	
-	NSOperationQueue *queue = [NSOperationQueue new];
-	NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self
-																			selector:@selector(retrieveData)
-																			  object:nil];
-	
-    [queue addOperation:operation];
-    [operation release];	
-	[queue release];
+	if(message != nil)
+	{
+		UIAlertView *alert = [[UIAlertView alloc] 
+							 initWithTitle:@"Location Manager" 
+							 message:message
+							 delegate:nil 
+							 cancelButtonTitle:@"Understood" 
+							 otherButtonTitles:nil];
+		
+		[alert show];
+		[alert release]; 
+		locationAllowed = NO;
+		[self createMap];
+	}
 }
 
 @end

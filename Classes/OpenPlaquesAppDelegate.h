@@ -22,7 +22,6 @@
 	SplashViewController *svc;
 	
 	NSMutableDictionary *plaqueList;
-	UIActivityIndicatorView *spinner;
 	UINavigationController *navController;
 	NSString *maxUploadDate;
 	NSURLConnection *connection;
@@ -30,6 +29,9 @@
 	CLLocationManager *locationManager;
 	CLLocation *currentLocation;
 	NSMutableArray *plaquesToSave;
+	
+	BOOL locationAllowed;
+	BOOL dataRetrievalRequested;
     
 @private
     NSManagedObjectContext *managedObjectContext_;
@@ -42,6 +44,7 @@
 @property (nonatomic, retain) NSMutableDictionary *plaqueList;
 @property (nonatomic, retain) UINavigationController *navController;
 @property (nonatomic, retain) CLLocationManager *locationManager;
+@property (nonatomic) BOOL locationAllowed;
 
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
@@ -57,6 +60,6 @@
 -(id) retrievePlaque:(int) plaqueId;
 -(id) transformManagedObjectToPlaqueVO:(NSManagedObject *) storedPlaque;
 - (NSString *)dataFilePath;
-//-(BOOL) isInDisplayableLocation:(CLLocation *) plaqueLocation;
+-(BOOL) userHasAllowedLocationTracking;
 @end
 

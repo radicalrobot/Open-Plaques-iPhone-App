@@ -26,7 +26,7 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-	//NSLog(@"viewDidLoad");
+	NSLog(@"viewDidLoad");
 	[self setTitle:@"Plaques Near You"];	
 	
 	/*colourList = [[NSDictionary dictionaryWithObjectsAndKeys:
@@ -56,24 +56,26 @@
 	
 	
 	// add annotations
-	OpenPlaquesAppDelegate *appDelegate = (OpenPlaquesAppDelegate *) [[UIApplication sharedApplication] delegate];
-	locationManager = [appDelegate locationManager];
-	
-	CLLocation *currentLocation = [locationManager location];
-	//NSLog(@"Current location is %@", currentLocation);
-	
-	[mapView setShowsUserLocation:YES];
-	
-	MKCoordinateSpan span;
-	span.latitudeDelta = 0.02;
-	span.longitudeDelta = 0.02;
-	
-	MKCoordinateRegion region;
-	region.center = [currentLocation coordinate];
-	region.span = span;
-	[mapView setRegion:region];
-	
-	[self addAnnotations:currentLocation ];
+	OpenPlaquesAppDelegate *appDelegate = (OpenPlaquesAppDelegate *) [[UIApplication sharedApplication] delegate];	
+	if([appDelegate locationAllowed])
+	{
+		locationManager = [appDelegate locationManager];
+
+		//NSLog(@"Location manager exists");
+		CLLocation *currentLocation = [locationManager location];		
+		[mapView setShowsUserLocation:YES];
+		
+		MKCoordinateSpan span;
+		span.latitudeDelta = 0.02;
+		span.longitudeDelta = 0.02;
+		
+		MKCoordinateRegion region;
+		region.center = [currentLocation coordinate];
+		region.span = span;
+		[mapView setRegion:region];
+		
+		[self addAnnotations:currentLocation ];
+	}
     [super viewDidLoad];
 }
 
@@ -171,7 +173,7 @@
 
 -(void)refresh
 {
-	//NSLog(@"refresh");
+	NSLog(@"refresh");
 	NSArray *ants = [mapView annotations];
 	[mapView removeAnnotations:ants];
 	
@@ -180,7 +182,7 @@
 
 -(void) addAnnotations:(CLLocation *)newLocation
 {
-	//NSLog(@"addAnnotation");		
+	NSLog(@"addAnnotation");		
 	OpenPlaquesAppDelegate *appDelegate = (OpenPlaquesAppDelegate *) [[UIApplication sharedApplication] delegate];
 	NSDictionary *list = [appDelegate plaqueList];
 	//NSLog(@"There are %d plaques to add to the map", [list count]);

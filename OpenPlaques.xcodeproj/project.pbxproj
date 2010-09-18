@@ -16,10 +16,7 @@
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D801B40F44B63D00FB423F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D801B30F44B63D00FB423F /* CoreData.framework */; };
 		A121BC56122D899500997BAD /* take-a-photo.png in Resources */ = {isa = PBXBuildFile; fileRef = A121BC54122D899500997BAD /* take-a-photo.png */; };
-		A121BC57122D899500997BAD /* white-pin.png in Resources */ = {isa = PBXBuildFile; fileRef = A121BC55122D899500997BAD /* white-pin.png */; };
-		A134350612203FEF00680410 /* white_pin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A134350512203FEF00680410 /* white_pin.jpg */; };
-		A164CEF6122A76BD003A9109 /* white_pin2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A164CEF5122A76BD003A9109 /* white_pin2.jpg */; };
-		A164CEFC122A77BC003A9109 /* white_pin4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A164CEFB122A77BC003A9109 /* white_pin4.jpg */; };
+		A177127A124418A200BD46C4 /* blue_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = A1771279124418A200BD46C4 /* blue_pin.png */; };
 		A17BDF8B1226D92E00E0564A /* OP-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A17BDF8A1226D92E00E0564A /* OP-Icon.png */; };
 		A17BE0A51227DF4F00E0564A /* PlaqueDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A17BE0A41227DF4F00E0564A /* PlaqueDetailViewController.m */; };
 		A192FB04120DDB52000D15AD /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A192FAF9120DDB52000D15AD /* NSObject+SBJSON.m */; };
@@ -33,24 +30,7 @@
 		A192FB14120DDB73000D15AD /* PlaqueVO.m in Sources */ = {isa = PBXBuildFile; fileRef = A192FB11120DDB73000D15AD /* PlaqueVO.m */; };
 		A192FB2D120DDC01000D15AD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A192FB2C120DDC01000D15AD /* CoreLocation.framework */; };
 		A192FB2F120DDC01000D15AD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A192FB2E120DDC01000D15AD /* MapKit.framework */; };
-		A1A332831211C5D800F07720 /* blue_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A3327D1211C5D800F07720 /* blue_pin.png */; };
-		A1A332841211C5D800F07720 /* green_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A3327E1211C5D800F07720 /* green_pin.png */; };
-		A1A332851211C5D800F07720 /* gray_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A3327F1211C5D800F07720 /* gray_pin.png */; };
-		A1A332861211C5D800F07720 /* pink_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A332801211C5D800F07720 /* pink_pin.png */; };
-		A1A332871211C5D800F07720 /* orange_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A332811211C5D800F07720 /* orange_pin.png */; };
-		A1A332881211C5D800F07720 /* yellow_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A332821211C5D800F07720 /* yellow_pin.png */; };
 		A1A333991216967100F07720 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A333981216967100F07720 /* icon.png */; };
-		A1A334BE121AF8B600F07720 /* black_pin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1A334B6121AF8B600F07720 /* black_pin.jpg */; };
-		A1A334BF121AF8B600F07720 /* bronze_pin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1A334B7121AF8B600F07720 /* bronze_pin.jpg */; };
-		A1A334C0121AF8B600F07720 /* brown_pin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1A334B8121AF8B600F07720 /* brown_pin.jpg */; };
-		A1A334C1121AF8B600F07720 /* claret_pin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1A334B9121AF8B600F07720 /* claret_pin.jpg */; };
-		A1A334C2121AF8B600F07720 /* film_pin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1A334BA121AF8B600F07720 /* film_pin.jpg */; };
-		A1A334C3121AF8B600F07720 /* gold_pin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1A334BB121AF8B600F07720 /* gold_pin.jpg */; };
-		A1A334C4121AF8B600F07720 /* stone_pin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1A334BC121AF8B600F07720 /* stone_pin.jpg */; };
-		A1A334C5121AF8B600F07720 /* white_pin3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1A334BD121AF8B600F07720 /* white_pin3.jpg */; };
-		A1A334CC121AFA0800F07720 /* purple_mix.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1A334C9121AFA0800F07720 /* purple_mix.jpg */; };
-		A1A334CD121AFA0800F07720 /* purple_pin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1A334CA121AFA0800F07720 /* purple_pin.jpg */; };
-		A1A334CE121AFA0800F07720 /* red_pin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1A334CB121AFA0800F07720 /* red_pin.jpg */; };
 		A1A33531121B0C2E00F07720 /* asyncimageview.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A33530121B0C2E00F07720 /* asyncimageview.m */; };
 		A1A335BD121B25C500F07720 /* CXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A335A9121B25C500F07720 /* CXMLDocument.m */; };
 		A1A335BE121B25C500F07720 /* CXMLDocument_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A335AB121B25C500F07720 /* CXMLDocument_CreationExtensions.m */; };
@@ -62,6 +42,7 @@
 		A1A335C4121B25C500F07720 /* CXMLNode_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A335B7121B25C500F07720 /* CXMLNode_CreationExtensions.m */; };
 		A1A335C5121B25C500F07720 /* CXMLNode_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A335B9121B25C500F07720 /* CXMLNode_PrivateExtensions.m */; };
 		A1A335C6121B25C500F07720 /* CXMLNode_XPathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A335BB121B25C500F07720 /* CXMLNode_XPathExtensions.m */; };
+		A1A886261233B73E003C3FE3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A886251233B73E003C3FE3 /* Default.png */; };
 		A1C229CE122586B6006E7929 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C229CC122586B6006E7929 /* SplashViewController.m */; };
 		A1C229CF122586B6006E7929 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C229CD122586B6006E7929 /* SplashViewController.xib */; };
 		A1C229D212258713006E7929 /* OP-Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C229D112258713006E7929 /* OP-Splash.png */; };
@@ -71,7 +52,7 @@
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* OpenPlaquesAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenPlaquesAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* OpenPlaquesAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenPlaquesAppDelegate.m; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* openplaques.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = openplaques.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* OpenPlaques.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenPlaques.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
@@ -81,10 +62,7 @@
 		32CA4F630368D1EE00C91783 /* openplaques_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openplaques_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* openplaques-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "openplaques-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		A121BC54122D899500997BAD /* take-a-photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "take-a-photo.png"; sourceTree = "<group>"; };
-		A121BC55122D899500997BAD /* white-pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white-pin.png"; sourceTree = "<group>"; };
-		A134350512203FEF00680410 /* white_pin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = white_pin.jpg; sourceTree = "<group>"; };
-		A164CEF5122A76BD003A9109 /* white_pin2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = white_pin2.jpg; sourceTree = "<group>"; };
-		A164CEFB122A77BC003A9109 /* white_pin4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = white_pin4.jpg; sourceTree = "<group>"; };
+		A1771279124418A200BD46C4 /* blue_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue_pin.png; sourceTree = "<group>"; };
 		A17BDF8A1226D92E00E0564A /* OP-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OP-Icon.png"; sourceTree = "<group>"; };
 		A17BE0A31227DF4F00E0564A /* PlaqueDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaqueDetailViewController.h; sourceTree = "<group>"; };
 		A17BE0A41227DF4F00E0564A /* PlaqueDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaqueDetailViewController.m; sourceTree = "<group>"; };
@@ -110,24 +88,7 @@
 		A192FB2C120DDC01000D15AD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A192FB2E120DDC01000D15AD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A19C0C3D122A4EDC00A026D0 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
-		A1A3327D1211C5D800F07720 /* blue_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue_pin.png; sourceTree = "<group>"; };
-		A1A3327E1211C5D800F07720 /* green_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_pin.png; sourceTree = "<group>"; };
-		A1A3327F1211C5D800F07720 /* gray_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gray_pin.png; sourceTree = "<group>"; };
-		A1A332801211C5D800F07720 /* pink_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pink_pin.png; sourceTree = "<group>"; };
-		A1A332811211C5D800F07720 /* orange_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orange_pin.png; sourceTree = "<group>"; };
-		A1A332821211C5D800F07720 /* yellow_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow_pin.png; sourceTree = "<group>"; };
 		A1A333981216967100F07720 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		A1A334B6121AF8B600F07720 /* black_pin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = black_pin.jpg; sourceTree = "<group>"; };
-		A1A334B7121AF8B600F07720 /* bronze_pin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bronze_pin.jpg; sourceTree = "<group>"; };
-		A1A334B8121AF8B600F07720 /* brown_pin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = brown_pin.jpg; sourceTree = "<group>"; };
-		A1A334B9121AF8B600F07720 /* claret_pin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = claret_pin.jpg; sourceTree = "<group>"; };
-		A1A334BA121AF8B600F07720 /* film_pin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = film_pin.jpg; sourceTree = "<group>"; };
-		A1A334BB121AF8B600F07720 /* gold_pin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gold_pin.jpg; sourceTree = "<group>"; };
-		A1A334BC121AF8B600F07720 /* stone_pin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stone_pin.jpg; sourceTree = "<group>"; };
-		A1A334BD121AF8B600F07720 /* white_pin3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = white_pin3.jpg; sourceTree = "<group>"; };
-		A1A334C9121AFA0800F07720 /* purple_mix.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = purple_mix.jpg; sourceTree = "<group>"; };
-		A1A334CA121AFA0800F07720 /* purple_pin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = purple_pin.jpg; sourceTree = "<group>"; };
-		A1A334CB121AFA0800F07720 /* red_pin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = red_pin.jpg; sourceTree = "<group>"; };
 		A1A3352F121B0C2E00F07720 /* asyncimageview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asyncimageview.h; sourceTree = "<group>"; };
 		A1A33530121B0C2E00F07720 /* asyncimageview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = asyncimageview.m; sourceTree = "<group>"; };
 		A1A335A8121B25C500F07720 /* CXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLDocument.h; sourceTree = "<group>"; };
@@ -151,6 +112,7 @@
 		A1A335BA121B25C500F07720 /* CXMLNode_XPathExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNode_XPathExtensions.h; sourceTree = "<group>"; };
 		A1A335BB121B25C500F07720 /* CXMLNode_XPathExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNode_XPathExtensions.m; sourceTree = "<group>"; };
 		A1A335BC121B25C500F07720 /* TouchXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchXML.h; sourceTree = "<group>"; };
+		A1A886251233B73E003C3FE3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A1C229CB122586B6006E7929 /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
 		A1C229CC122586B6006E7929 /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
 		A1C229CD122586B6006E7929 /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SplashViewController.xib; path = Classes/SplashViewController.xib; sourceTree = "<group>"; };
@@ -198,7 +160,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* openplaques.app */,
+				1D6058910D05DD3D006BFB54 /* OpenPlaques.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -231,32 +193,13 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A1771279124418A200BD46C4 /* blue_pin.png */,
+				A1A886251233B73E003C3FE3 /* Default.png */,
 				A121BC54122D899500997BAD /* take-a-photo.png */,
-				A121BC55122D899500997BAD /* white-pin.png */,
-				A164CEFB122A77BC003A9109 /* white_pin4.jpg */,
-				A164CEF5122A76BD003A9109 /* white_pin2.jpg */,
 				A17BDF8A1226D92E00E0564A /* OP-Icon.png */,
 				A1C229D112258713006E7929 /* OP-Splash.png */,
 				A1C229CD122586B6006E7929 /* SplashViewController.xib */,
-				A134350512203FEF00680410 /* white_pin.jpg */,
-				A1A334C9121AFA0800F07720 /* purple_mix.jpg */,
-				A1A334CA121AFA0800F07720 /* purple_pin.jpg */,
-				A1A334CB121AFA0800F07720 /* red_pin.jpg */,
-				A1A334B6121AF8B600F07720 /* black_pin.jpg */,
-				A1A334B7121AF8B600F07720 /* bronze_pin.jpg */,
-				A1A334B8121AF8B600F07720 /* brown_pin.jpg */,
-				A1A334B9121AF8B600F07720 /* claret_pin.jpg */,
-				A1A334BA121AF8B600F07720 /* film_pin.jpg */,
-				A1A334BB121AF8B600F07720 /* gold_pin.jpg */,
-				A1A334BC121AF8B600F07720 /* stone_pin.jpg */,
-				A1A334BD121AF8B600F07720 /* white_pin3.jpg */,
 				A1A333981216967100F07720 /* icon.png */,
-				A1A3327D1211C5D800F07720 /* blue_pin.png */,
-				A1A3327E1211C5D800F07720 /* green_pin.png */,
-				A1A3327F1211C5D800F07720 /* gray_pin.png */,
-				A1A332801211C5D800F07720 /* pink_pin.png */,
-				A1A332811211C5D800F07720 /* orange_pin.png */,
-				A1A332821211C5D800F07720 /* yellow_pin.png */,
 				2819305F112F816700ECF9B4 /* OpenPlaques.xcdatamodeld */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* openplaques-Info.plist */,
@@ -335,9 +278,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* openplaques */ = {
+		1D6058900D05DD3D006BFB54 /* OpenPlaques */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "openplaques" */;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "OpenPlaques" */;
 			buildPhases = (
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
@@ -347,9 +290,9 @@
 			);
 			dependencies = (
 			);
-			name = openplaques;
+			name = OpenPlaques;
 			productName = OpenPlaques;
-			productReference = 1D6058910D05DD3D006BFB54 /* openplaques.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* OpenPlaques.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -359,12 +302,19 @@
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "OpenPlaques" */;
 			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* openplaques */,
+				1D6058900D05DD3D006BFB54 /* OpenPlaques */,
 			);
 		};
 /* End PBXProject section */
@@ -375,32 +325,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
-				A1A332831211C5D800F07720 /* blue_pin.png in Resources */,
-				A1A332841211C5D800F07720 /* green_pin.png in Resources */,
-				A1A332851211C5D800F07720 /* gray_pin.png in Resources */,
-				A1A332861211C5D800F07720 /* pink_pin.png in Resources */,
-				A1A332871211C5D800F07720 /* orange_pin.png in Resources */,
-				A1A332881211C5D800F07720 /* yellow_pin.png in Resources */,
 				A1A333991216967100F07720 /* icon.png in Resources */,
-				A1A334BE121AF8B600F07720 /* black_pin.jpg in Resources */,
-				A1A334BF121AF8B600F07720 /* bronze_pin.jpg in Resources */,
-				A1A334C0121AF8B600F07720 /* brown_pin.jpg in Resources */,
-				A1A334C1121AF8B600F07720 /* claret_pin.jpg in Resources */,
-				A1A334C2121AF8B600F07720 /* film_pin.jpg in Resources */,
-				A1A334C3121AF8B600F07720 /* gold_pin.jpg in Resources */,
-				A1A334C4121AF8B600F07720 /* stone_pin.jpg in Resources */,
-				A1A334C5121AF8B600F07720 /* white_pin3.jpg in Resources */,
-				A1A334CC121AFA0800F07720 /* purple_mix.jpg in Resources */,
-				A1A334CD121AFA0800F07720 /* purple_pin.jpg in Resources */,
-				A1A334CE121AFA0800F07720 /* red_pin.jpg in Resources */,
-				A134350612203FEF00680410 /* white_pin.jpg in Resources */,
 				A1C229CF122586B6006E7929 /* SplashViewController.xib in Resources */,
 				A1C229D212258713006E7929 /* OP-Splash.png in Resources */,
 				A17BDF8B1226D92E00E0564A /* OP-Icon.png in Resources */,
-				A164CEF6122A76BD003A9109 /* white_pin2.jpg in Resources */,
-				A164CEFC122A77BC003A9109 /* white_pin4.jpg in Resources */,
 				A121BC56122D899500997BAD /* take-a-photo.png in Resources */,
-				A121BC57122D899500997BAD /* white-pin.png in Resources */,
+				A1A886261233B73E003C3FE3 /* Default.png in Resources */,
+				A177127A124418A200BD46C4 /* blue_pin.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,12 +379,13 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = "~/Development/iphone/OpenPlaquesProject/Entitlements.plist";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.01;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = openplaques_Prefix.pch;
 				INFOPLIST_FILE = "openplaques-Info.plist";
-				PRODUCT_NAME = openplaques;
+				PRODUCT_NAME = OpenPlaques;
 			};
 			name = Debug;
 		};
@@ -462,43 +394,52 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = "~/Development/iphone/OpenPlaquesProject/Entitlements.plist";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Emily Toop";
 				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1.01;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = openplaques_Prefix.pch;
 				INFOPLIST_FILE = "openplaques-Info.plist";
-				PRODUCT_NAME = openplaques;
+				PRODUCT_NAME = OpenPlaques;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B4704582-61B3-4EF1-A158-544D8174AA87";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		A19C0C1F1229798D00A026D0 /* Distribution */ = {
+		A1A886121233A6BF003C3FE3 /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Emily Toop";
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Emily Toop (29T4RKX3D3)";
+				CURRENT_PROJECT_VERSION = 0.9;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				INFOPLIST_FILE = "openplaques-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-lxml2";
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B4704582-61B3-4EF1-A158-544D8174AA87";
-				SDKROOT = iphoneos4.0;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8AE401BC-020D-480E-B318-30BB0E0E475A";
+				SDKROOT = iphoneos4.1;
 			};
 			name = Distribution;
 		};
-		A19C0C201229798D00A026D0 /* Distribution */ = {
+		A1A886131233A6BF003C3FE3 /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = "~/Development/iphone/OpenPlaquesProject/Entitlements.plist";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Emily Toop";
 				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1.01;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = openplaques_Prefix.pch;
 				INFOPLIST_FILE = "openplaques-Info.plist";
-				PRODUCT_NAME = openplaques;
+				PRODUCT_NAME = OpenPlaques;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B4704582-61B3-4EF1-A158-544D8174AA87";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Distribution;
@@ -515,7 +456,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1.2;
 				OTHER_LDFLAGS = "-lxml2";
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos4.1;
 			};
 			name = Debug;
 		};
@@ -536,19 +477,19 @@
 				OTHER_LDFLAGS = "-lxml2";
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8AE401BC-020D-480E-B318-30BB0E0E475A";
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos4.1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "openplaques" */ = {
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "OpenPlaques" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
-				A19C0C201229798D00A026D0 /* Distribution */,
+				A1A886131233A6BF003C3FE3 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -558,7 +499,7 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
-				A19C0C1F1229798D00A026D0 /* Distribution */,
+				A1A886121233A6BF003C3FE3 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

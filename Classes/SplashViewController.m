@@ -21,12 +21,28 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
+	
+	UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] 
+			   initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];	
+	[spinner startAnimating];
+	
+	
+	[[self view] addSubview:spinner];
+	
+	
+	CGRect appFrame = [[UIScreen mainScreen]applicationFrame];
+	int x = (appFrame.size.width/2) - 16;
+	int y = (appFrame.size.height/2) - 16;
+	[spinner setFrame:CGRectMake( x, y, 32, 32)];
+	
+	[spinner release];
 }
-*/
+
 
 /*
 // Override to allow orientations other than the default portrait orientation.
