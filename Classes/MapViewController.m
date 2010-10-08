@@ -48,7 +48,7 @@
 				   @"yellow_pin.png", @"yellow",
 				   nil] retain];*/
 	
-	mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 460)];
+	mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 420)];
 	
 	[mapView setDelegate:self];
 	
