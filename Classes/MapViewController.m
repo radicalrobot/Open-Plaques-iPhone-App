@@ -52,7 +52,7 @@
 		region.span = span;
 		[mapView setRegion:region];
 		
-		[self addAnnotations:currentLocation ];
+		[self addAnnotations];
 	}
     [super viewDidLoad];
 }
@@ -133,27 +133,38 @@
 	NSArray *ants = [mapView annotations];
 	[mapView removeAnnotations:ants];
 	
-	[self addAnnotations:[locationManager location]];
+	[self addAnnotations];
+	NSLog(@"::END:: refresh");	
 }
 
--(void) addAnnotations:(CLLocation *)newLocation
+-(void) addAnnotations
 {
-	NSLog(@"addAnnotation");		
+	NSLog(@"addAnnotations");		
 	OpenPlaquesAppDelegate *appDelegate = (OpenPlaquesAppDelegate *) [[UIApplication sharedApplication] delegate];
-	NSDictionary *list = [appDelegate plaqueList];
+	NSDictionary *list = [[NSDictionary alloc] initWithDictionary:[appDelegate plaqueList]];
 	//NSLog(@"There are %d plaques to add to the map", [list count]);
-	for (NSString *key in [list allKeys]) 
+	
+	if(list != nil)
 	{
-		PlaqueVO *plaque = [list objectForKey: key];
-		
-		PlaqueAnnotation *ann = [[PlaqueAnnotation alloc] init];
-		[ann setTitle:[plaque inscription]];
-		[ann setSubtitle:[plaque location]];
-		[ann setCoordinate:[plaque locationCoords]];
-		[ann setPlaqueId:[plaque plaqueId]];		
-		[mapView addAnnotation:ann];	
-		[ann release];
+		for (NSString *key in [list allKeys]) 
+		{
+			PlaqueVO *plaque = [list objectForKey: key];
+			[self addAnnotation:plaque];
+		}
+		[list release];
 	}
+	NSLog(@"::END:: addAnnotations");	
+}
+
+-(void) addAnnotation:(PlaqueVO *)plaque
+{
+	PlaqueAnnotation *ann = [[PlaqueAnnotation alloc] init];
+	[ann setTitle:[plaque inscription]];
+	[ann setSubtitle:[plaque location]];
+	[ann setCoordinate:[plaque locationCoords]];
+	[ann setPlaqueId:[plaque plaqueId]];		
+	[mapView addAnnotation:ann];	
+	[ann release];
 }
 				 
 

@@ -275,7 +275,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>17</integer>
+									<integer>11</integer>
+									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -329,7 +330,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>A1457C221260D1F300586604</string>
+										<string>A1457D391260EA3500586604</string>
 										<key>history</key>
 										<array>
 											<string>A1A3340C12169DE100F07720</string>
@@ -343,14 +344,14 @@
 											<string>A198BC23123D45D2005F3F4E</string>
 											<string>A198C1D31242BB64005F3F4E</string>
 											<string>A177129D1244BDDD00BD46C4</string>
-											<string>A13D65F7125F5DCA009E5FE2</string>
 											<string>A1457B8C126080E100586604</string>
 											<string>A1457B8E126080E100586604</string>
 											<string>A1457BD7126087D700586604</string>
-											<string>A1457BD8126087D700586604</string>
-											<string>A1457BD9126087D700586604</string>
-											<string>A1457BEC12608B7A00586604</string>
-											<string>A1457BF812608BC000586604</string>
+											<string>A1457C371260D51A00586604</string>
+											<string>A1457C741260DA0400586604</string>
+											<string>A1457CA71260DC9100586604</string>
+											<string>A1457CD21260DFFB00586604</string>
+											<string>A1457CD11260DFF900586604</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -548,13 +549,12 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>A1457C231260D1F300586604</string>
 		<string>1C530D57069F1CE1000CFCEE</string>
 		<string>A1457BA1126082DA00586604</string>
 		<string>A1457BA4126082DC00586604</string>
 		<string>A1457BA6126082DC00586604</string>
-		<string>A192FB1A120DDBA0000D15AD</string>
 		<string>1CD10A99069EF8BA00B06720</string>
+		<string>A192FB1A120DDBA0000D15AD</string>
 		<string>/Users/emily/Development/iphone/OpenPlaquesV1/OpenPlaques.xcodeproj</string>
 		<string>1C78EAAD065D492600B07095</string>
 	</array>
@@ -575,12 +575,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string></string>
+								<string>MapViewController.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -589,7 +591,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {981, 428}}</string>
 								<key>RubberWindowFrame</key>
-								<string>140 206 981 710 0 0 1440 878 </string>
+								<string>140 168 981 710 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -613,7 +615,7 @@
 								<key>Frame</key>
 								<string>{{0, 433}, {981, 236}}</string>
 								<key>RubberWindowFrame</key>
-								<string>140 206 981 710 0 0 1440 878 </string>
+								<string>140 168 981 710 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXBuildResultsModule</string>
@@ -645,7 +647,7 @@
 			<key>WindowContentMinSize</key>
 			<string>486 300</string>
 			<key>WindowString</key>
-			<string>140 206 981 710 0 0 1440 878 </string>
+			<string>140 168 981 710 0 0 1440 878 </string>
 			<key>WindowToolGUID</key>
 			<string>A192FB1A120DDBA0000D15AD</string>
 			<key>WindowToolIsVisible</key>
@@ -773,7 +775,7 @@
 			<key>WindowToolGUID</key>
 			<string>1CD10A99069EF8BA00B06720</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
@@ -897,7 +899,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1021, 625}}</string>
 								<key>RubberWindowFrame</key>
-								<string>401 145 1021 666 0 0 1440 878 </string>
+								<string>401 143 1021 666 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugCLIModule</string>
@@ -926,7 +928,7 @@
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.consoleV3</string>
 			<key>WindowString</key>
-			<string>401 145 1021 666 0 0 1440 878 </string>
+			<string>401 143 1021 666 0 0 1440 878 </string>
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>

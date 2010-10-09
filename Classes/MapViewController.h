@@ -19,7 +19,8 @@
 
 
 -(void) refresh;
--(void) addAnnotations:(CLLocation *)newLocation;
+-(void) addAnnotations;
+-(void) addAnnotation:(PlaqueVO *) plaque;
 
 
 @end

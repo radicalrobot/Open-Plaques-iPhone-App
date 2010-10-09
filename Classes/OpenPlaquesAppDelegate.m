@@ -27,7 +27,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
 	
-	//NSLog(@"didFinishLaunchingWithOptions");
+	NSLog(@"didFinishLaunchingWithOptions");
 	// Override point for customization after application launch.
     [window makeKeyAndVisible];
 	
@@ -39,6 +39,7 @@
 	
 	
 	plaqueList = [[NSMutableDictionary alloc] init];	
+	plaquesToSave = [[NSMutableArray alloc] init];
 	
 	if([CLLocationManager locationServicesEnabled])
 	{
@@ -80,7 +81,7 @@
  */
 - (void)applicationWillTerminate:(UIApplication *)application 
 {
-	//NSLog(@"applicationWillTerminate");
+	NSLog(@"applicationWillTerminate");
     
     NSError *error = nil;
     if (managedObjectContext_ != nil) 
@@ -154,15 +155,6 @@
     NSError *error = nil;
     persistentStoreCoordinator_ = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     if (![persistentStoreCoordinator_ addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
-		UIAlertView *alert = [[UIAlertView alloc] 
-							  initWithTitle:@"Flickr API Error" 
-							  message:[NSString stringWithFormat:@"Unable to access stored data, retrieving from Open Plaques %@", [error description]]  
-							  delegate:nil 
-							  cancelButtonTitle:@"OK" 
-							  otherButtonTitles:nil];
-		
-		[alert show];
-		[alert release];
 		[self makeAPIRequest];
     }    
     
@@ -194,6 +186,7 @@
 
 
 - (void)dealloc {
+	[plaquesToSave release];
     [locationManager release];
 	[maxUploadDate release];
 	[plaqueList release];
@@ -222,19 +215,29 @@
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 	
 	[self parsePlaques];
+	
+	if([plaquesToSave count] > 0)
+	{
+		[self storeData];
+	}
 }
 
 -(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-	UIAlertView *alert = [[UIAlertView alloc] 
-						  initWithTitle:@"Open Plaques data connection Error" 
-						  message:@"No new data could be retrieved from Open Plaques at this time." 
-						  delegate:nil 
-						  cancelButtonTitle:@"OK" 
-						  otherButtonTitles:nil];
-	
-	[alert show];
-	[alert release];
+	if(plaqueList == nil
+	   || [plaqueList count] == 0)
+	{
+		
+		UIAlertView *alert = [[UIAlertView alloc] 
+							  initWithTitle:@"Open Plaques data connection Error" 
+							  message:@"No new data could be retrieved from Open Plaques at this time." 
+							  delegate:nil 
+							  cancelButtonTitle:@"OK" 
+							  otherButtonTitles:nil];
+		
+		[alert show];
+		[alert release];
+	}
 	[self createMap];
 }
 
@@ -245,17 +248,23 @@
 
 -(void) getPlaquesFromStorage
 {	
+	NSLog(@"getPlaquesFromStorage");
 	NSString* path = [[NSBundle mainBundle] pathForResource:@"plaques" 
 													 ofType:@"json"];
-
-	receivedData = [[NSMutableData alloc] initWithContentsOfFile:path];
+	
+	if(receivedData != nil)
+		[receivedData release];
+	
+	//receivedData  =[[[NSMutableData data] initWithContentsOfFile:path] retain];
+	
+	receivedData = [[[NSMutableData alloc] initWithContentsOfFile:path] retain];
 	
 	[self parsePlaques];
 }
 
 -(void) parsePlaques
 {
-	//NSLog(@"parsePlaques");
+	NSLog(@"parsePlaques");
 //(@"Parsing retrieved data as plaques");
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 	SBJSON *jsonParser = [[SBJSON alloc] init];
@@ -282,8 +291,6 @@
 	//NSLog(@"Json parsed OK with %d plaques", [results count]);
 	
 	int newPlaqueCount = 0;
-	
-	plaquesToSave = [[NSMutableArray alloc] init];
 	
 	NSDateFormatter *df = [[NSDateFormatter alloc] init];
 	[df setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
@@ -338,7 +345,9 @@
 		[plaquesToSave addObject:plaque];
 		if([CLLocationManager locationServicesEnabled]
 		   && [plaque isInDisplayableLocation:[locationManager location]])
+		{
 			[plaqueList setObject:plaque forKey:[plaque plaqueId]];
+		}
 		[plaque release];	
 		++newPlaqueCount;
 	}
@@ -348,12 +357,12 @@
 	{
 		//NSLog(@"New plaque count = %d", newPlaqueCount);
 		[self createMap];
-		[self storeData];
 	}
 }
 
 -(void) createMap
 {
+	NSLog(@"createMap");
 	
 	if([navController visibleViewController] != nil)
 	{
@@ -364,7 +373,7 @@
 	}
 	else 
 	{
-		//NSLog(@"createMap");
+		NSLog(@"createMap");
 		[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];		
 		MapViewController *mvc = [[MapViewController alloc]init];
 		[[mvc view] setFrame:[[UIScreen mainScreen] applicationFrame]];	
@@ -379,6 +388,7 @@
 
 - (void) retrieveData
 {
+	NSLog(@"retrieveData");
 	currentLocation = [locationManager location];	
 	MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 100000.0, 100000.0);
 	CLLocationCoordinate2D northWestCorner, southEastCorner;
@@ -413,13 +423,9 @@
 		
 		[self getPlaquesFromStorage];
 		
-		
-		NSDateFormatter *df = [[NSDateFormatter alloc] init];
-		[df setDateFormat:@"yyyy-MM-dd'T'hh:mm:ss'Z'"];
-		
-		NSString *fileDate = @"2010-10-09'T'12:20:00'Z'";
-		
-		[fileDate writeToFile:[self dataFilePath] atomically:YES encoding:NSUnicodeStringEncoding error:&error];
+		/// save the file date so we know when to fetch the plaques since from openplaques.org		
+		maxUploadDate = @"2010-10-09'T'12:20:00'Z'";
+		[maxUploadDate writeToFile:[self dataFilePath] atomically:YES encoding:NSUnicodeStringEncoding error:&error];
 		
 		// now go and fetch everything that happened since last time
 		[self performSelectorOnMainThread:@selector(makeAPIRequest) withObject:nil waitUntilDone:false]; 
@@ -443,7 +449,7 @@
 		}
 		
 		[request release];	
-		//NSLog(@"retrieved %d plaques from storage", [plaqueList count]);
+		NSLog(@"retrieved %d plaques from storage", [plaqueList count]);
 		
 		[self performSelectorOnMainThread:@selector(makeAPIRequest) withObject:nil waitUntilDone:false]; 
 		
@@ -482,7 +488,7 @@
 							  
 - (NSString *)dataFilePath
 {
-	//NSLog(@"dataFilePath");
+	NSLog(@"dataFilePath");
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *documentsDirectory = [paths objectAtIndex:0];
 	return [documentsDirectory stringByAppendingPathComponent:kFileName];
@@ -520,10 +526,14 @@
 
 - (void) storeData
 {	
+	NSLog(@"Store data %d", [plaquesToSave count]);
+	NSArray *toSave = [[NSArray alloc]initWithArray:plaquesToSave];
+	[plaquesToSave removeAllObjects];
+
 	NSOperationQueue *queue = [NSOperationQueue new];
 	NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self
-																			selector:@selector(saveDataWithOperation)
-																			  object:nil];
+																			selector:@selector(saveDataWithOperation:)
+																			  object:toSave];
 	
     /* Add the operation to the queue */
     [queue addOperation:operation];
@@ -531,42 +541,29 @@
 	[queue release];
 }
 
--(void)saveDataWithOperation{
-	//NSLog(@"saveDataWithOperation");
+-(void)saveDataWithOperation:(id) toSave{
+	NSLog(@"saveDataWithOperation %@", toSave);
 	NSError *error;
 	int storedItems = 0;
-//	NSLog(@"storing %d plaques from list", [plaqueList count]);	
-	for(PlaqueVO *plaque in plaquesToSave)
+	NSLog(@"storing %d plaques from list", [toSave count]);	
+	for(PlaqueVO *plaque in toSave)
 	{
 		[self storeData:plaque];
 		storedItems++;
 	}
 	
 	[[self managedObjectContext] save:&error];
-	[plaquesToSave release];
-	//NSLog(@"%d plaques stored", storedItems);	//NSLog(@"Setting last upload date to be %@", today);
+	//[toSave release];
+	NSLog(@"%d plaques stored", storedItems);	//NSLog(@"Setting last upload date to be %@", today);
 	
-	
-	if(maxUploadDate == nil)
-	{
-		UIAlertView *alert = [[UIAlertView alloc] 
-							  initWithTitle:@"Data Load complete" 
-							  message:@"We have successfully loaded and saved the open plaques data. You may now close the app." 
-							  delegate:nil 
-							  cancelButtonTitle:@"OK" 
-							  otherButtonTitles:nil];
 		
-		[alert show];
-		[alert release];
+	NSDateFormatter *df = [[NSDateFormatter alloc] init];
+	[df setDateFormat:@"yyyy-MM-dd'T'hh:mm:ss'Z'"];
 		
-		NSDateFormatter *df = [[NSDateFormatter alloc] init];
-		[df setDateFormat:@"yyyy-MM-dd'T'hh:mm:ss'Z'"];
-		
-		NSString *today = [df stringFromDate:[NSDate date]];
-		[df release];
-		[today writeToFile:[self dataFilePath] atomically:YES encoding:NSUnicodeStringEncoding error:&error];
-	}
-	
+	NSString *today = [df stringFromDate:[NSDate date]];
+	[df release];
+	[today writeToFile:[self dataFilePath] atomically:YES encoding:NSUnicodeStringEncoding error:&error];	
+	NSLog(@"Data saved");
 }
 
 -(void) storeData:(PlaqueVO *)plaque
@@ -625,7 +622,7 @@
 
 -(void) makeAPIRequest
 {
-	//NSLog(@"makeAPIRequest");
+	NSLog(@"makeAPIRequest");
 	NSString *urlStr = kDataURL;
 	if(maxUploadDate != nil)
 		urlStr = [NSString stringWithFormat:@"%@?since=%@", kDataURL, maxUploadDate];
@@ -639,6 +636,8 @@
 	
 	connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 	
+	if(receivedData != nil)
+		[receivedData release];
 	receivedData  =[[NSMutableData data] retain];
 	
 	[request release];
@@ -655,7 +654,7 @@
 
 -(void) locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
-	//NSLog(@"didUpdateToLocation");
+	NSLog(@"didUpdateToLocation");
 	locationAllowed = YES;
 	//NSLog(@"MapViewController didUpdateToLocation");
 	
