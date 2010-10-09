@@ -40,6 +40,5 @@
 
 -(void)parseFlickrResult;
 -(void)savePlaque;
--(PlaqueVO *)getPlaque;
 
 @end

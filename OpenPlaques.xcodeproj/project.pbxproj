@@ -17,6 +17,7 @@
 		28D801B40F44B63D00FB423F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D801B30F44B63D00FB423F /* CoreData.framework */; };
 		A121BC56122D899500997BAD /* take-a-photo.png in Resources */ = {isa = PBXBuildFile; fileRef = A121BC54122D899500997BAD /* take-a-photo.png */; };
 		A13D65D6125F53DC009E5FE2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A13D65D5125F53DC009E5FE2 /* Default.png */; };
+		A1457BE312608A7B00586604 /* plaques.json in Resources */ = {isa = PBXBuildFile; fileRef = A1457BE212608A7B00586604 /* plaques.json */; };
 		A177127A124418A200BD46C4 /* blue_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = A1771279124418A200BD46C4 /* blue_pin.png */; };
 		A17BDF8B1226D92E00E0564A /* OP-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A17BDF8A1226D92E00E0564A /* OP-Icon.png */; };
 		A17BE0A51227DF4F00E0564A /* PlaqueDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A17BE0A41227DF4F00E0564A /* PlaqueDetailViewController.m */; };
@@ -64,6 +65,7 @@
 		8D1107310486CEB800E47090 /* openplaques-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "openplaques-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		A121BC54122D899500997BAD /* take-a-photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "take-a-photo.png"; sourceTree = "<group>"; };
 		A13D65D5125F53DC009E5FE2 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		A1457BE212608A7B00586604 /* plaques.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = plaques.json; sourceTree = "<group>"; };
 		A1771279124418A200BD46C4 /* blue_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue_pin.png; sourceTree = "<group>"; };
 		A17BDF8A1226D92E00E0564A /* OP-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OP-Icon.png"; sourceTree = "<group>"; };
 		A17BE0A31227DF4F00E0564A /* PlaqueDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaqueDetailViewController.h; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A1457BE212608A7B00586604 /* plaques.json */,
 				A13D65D5125F53DC009E5FE2 /* Default.png */,
 				A1771279124418A200BD46C4 /* blue_pin.png */,
 				A1A886251233B73E003C3FE3 /* Default.png */,
@@ -336,6 +339,7 @@
 				A1A886261233B73E003C3FE3 /* Default.png in Resources */,
 				A177127A124418A200BD46C4 /* blue_pin.png in Resources */,
 				A13D65D6125F53DC009E5FE2 /* Default.png in Resources */,
+				A1457BE312608A7B00586604 /* plaques.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,7 +394,6 @@
 				GCC_PREFIX_HEADER = openplaques_Prefix.pch;
 				INFOPLIST_FILE = "openplaques-Info.plist";
 				PRODUCT_NAME = OpenPlaques;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "59C2BBA1-949C-4308-9F92-96404602DCCB";
 			};
 			name = Debug;
 		};

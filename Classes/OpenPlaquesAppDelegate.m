@@ -241,6 +241,18 @@
 # pragma mark -
 # pragma mark Custom methods
 
+
+
+-(void) getPlaquesFromStorage
+{	
+	NSString* path = [[NSBundle mainBundle] pathForResource:@"plaques" 
+													 ofType:@"json"];
+
+	receivedData = [[NSMutableData alloc] initWithContentsOfFile:path];
+	
+	[self parsePlaques];
+}
+
 -(void) parsePlaques
 {
 	//NSLog(@"parsePlaques");
@@ -251,6 +263,7 @@
 	NSString *jsonString = [[NSString alloc] 
 							initWithData:receivedData 
 							encoding:NSUTF8StringEncoding];
+	//NSLog(@"Json String %@", jsonString);
 	NSError *jsonError = nil;
 	NSArray *results = [jsonParser 
 						objectWithString:jsonString
@@ -259,11 +272,13 @@
 	[jsonParser release];
 	
 	if(jsonError) {
-		NSLog(@"Json has problems");
+		NSLog(@"Json has problems %@", jsonError);
 		[jsonError release];
 		[self createMap];
+		return;
 	}
 	[jsonError release];
+	
 	//NSLog(@"Json parsed OK with %d plaques", [results count]);
 	
 	int newPlaqueCount = 0;
@@ -364,6 +379,14 @@
 
 - (void) retrieveData
 {
+	currentLocation = [locationManager location];	
+	MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 100000.0, 100000.0);
+	CLLocationCoordinate2D northWestCorner, southEastCorner;
+	northWestCorner.latitude  = currentLocation.coordinate.latitude  - (region.span.latitudeDelta  / 2.0);
+	northWestCorner.longitude = currentLocation.coordinate.longitude + (region.span.longitudeDelta / 2.0);
+	southEastCorner.latitude  = currentLocation.coordinate.latitude  + (region.span.latitudeDelta  / 2.0);
+	southEastCorner.longitude = currentLocation.coordinate.longitude - (region.span.longitudeDelta / 2.0);
+	
 	//NSLog(@"retrieveData");
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];	
 	//	NSLog(@"Retrieving data");
@@ -371,10 +394,10 @@
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	[request setEntity:entityDescription];
 	
+	
 	NSError *error;
 	
-	NSArray *objects = [[self managedObjectContext] executeFetchRequest:request error:&error];
-	
+	NSUInteger *numRecords = (NSUInteger *)[[self managedObjectContext] countForFetchRequest:request error:&error];	
 	
 	NSString *filePath = [self dataFilePath];
 	if([[NSFileManager defaultManager] fileExistsAtPath:filePath])
@@ -383,37 +406,40 @@
 	}
 	
 	// if we cannot retrieve our data or there is no data stored then make an API request
-	if(objects == nil
-	   || [objects count] == 0)
+	if(numRecords == nil
+	   || numRecords == 0)
 	{
 		[request release];
 		
-		UIAlertView *alert = [[UIAlertView alloc] 
-							  initWithTitle:@"Data Load in Progress" 
-							  message:@"We are in the process of downloading the Open Plaques data. This may take several minutes. Please do not close the app until you are alerted that the loaded data has been saved." 
-							  delegate:nil 
-							  cancelButtonTitle:@"OK" 
-							  otherButtonTitles:nil];
+		[self getPlaquesFromStorage];
 		
-		[alert show];
-		[alert release];
 		
+		NSDateFormatter *df = [[NSDateFormatter alloc] init];
+		[df setDateFormat:@"yyyy-MM-dd'T'hh:mm:ss'Z'"];
+		
+		NSString *fileDate = @"2010-10-09'T'12:20:00'Z'";
+		
+		[fileDate writeToFile:[self dataFilePath] atomically:YES encoding:NSUnicodeStringEncoding error:&error];
+		
+		// now go and fetch everything that happened since last time
 		[self performSelectorOnMainThread:@selector(makeAPIRequest) withObject:nil waitUntilDone:false]; 
 	}
 	else
 	{
+		error = nil;
+		// only load up the plaques that are within 50kms of our current location
+		NSPredicate *pred = [NSPredicate predicateWithFormat:@"(latitude >= %Lf AND latitude <= %Lf) AND (longitude >= %Lf AND longitude <= %Lf)", northWestCorner.latitude, southEastCorner.latitude, southEastCorner.longitude, northWestCorner.longitude];
+		[request setPredicate:pred];
+		
+		
+		NSArray *objects = [[self managedObjectContext] executeFetchRequest:request error:&error];
+		
 		//NSLog(@"Data found in storage, no API calls will be made");
 		for(NSManagedObject *storedPlaque in objects)
 		{
 			PlaqueVO *transformedObj = [self transformManagedObjectToPlaqueVO:storedPlaque];
 			
-			
-			// only load up the plaques that are within 50kms of our current location
-			if([CLLocationManager locationServicesEnabled]
-			   && [transformedObj isInDisplayableLocation:[locationManager location]])
-			{
-				[plaqueList setObject: transformedObj forKey:[transformedObj plaqueId]];
-			}
+			[plaqueList setObject: transformedObj forKey:[transformedObj plaqueId]];
 		}
 		
 		[request release];	
@@ -460,42 +486,6 @@
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *documentsDirectory = [paths objectAtIndex:0];
 	return [documentsDirectory stringByAppendingPathComponent:kFileName];
-}
-
--(id) retrievePlaque:(int) plaqueId	
-{	
-	//NSLog(@"retrievePlaque");
-	//NSLog(@"retrievePlaque %d", plaqueId);
-	
-	NSError *error;
-	NSFetchRequest *request = [[NSFetchRequest alloc]init];
-		
-	NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Plaque" inManagedObjectContext:[self managedObjectContext]];
-	[request setEntity:entityDescription];
-	NSPredicate *pred = [NSPredicate predicateWithFormat:@"(id = %d)", plaqueId];
-	[request setPredicate:pred];
-	
-	NSManagedObject *storedPlaque = nil;
-	
-	NSArray *objects = [[self managedObjectContext] executeFetchRequest:request error:&error];
-	
-	[request release];
-	
-	if(objects == nil)
-	{
-		NSLog(@"Got an error");
-	}
-	
-	PlaqueVO *plaque = nil;
-	if([objects count] > 0)
-	{
-		storedPlaque = [objects objectAtIndex:0];
-	
-		plaque = [self transformManagedObjectToPlaqueVO:storedPlaque];
-	}	
-	//NSLog(@"Plaque %d retrieved", plaqueId);
-	return plaque;
-		
 }
 
 -(id) transformManagedObjectToPlaqueVO:(NSManagedObject *) storedPlaque
@@ -631,7 +621,6 @@
 	[request release];
 	
 	//NSLog(@"Plaques Stored %@", thePlaque);
-	[[self managedObjectContext] save:&error];
 }
 
 -(void) makeAPIRequest

@@ -337,14 +337,6 @@
 }
 
 
-
--(PlaqueVO *)getPlaque
-{	
-	OpenPlaquesAppDelegate *appDelegate = (OpenPlaquesAppDelegate *) [[UIApplication sharedApplication] delegate];
-	return [appDelegate retrievePlaque:[plaqueId intValue]];
-	
-}
-
 #pragma mark -
 #pragma mark NSURLConnection delegate methods
 

@@ -14,11 +14,8 @@
 
 @implementation MapViewController
 
-@synthesize colourList;
-
 
 - (void)dealloc {
-	[colourList release];
 	[mapView release];
     [super dealloc];
 }
@@ -28,25 +25,6 @@
 - (void)viewDidLoad {
 	NSLog(@"viewDidLoad");
 	[self setTitle:@"Plaques Near You"];	
-	
-	/*colourList = [[NSDictionary dictionaryWithObjectsAndKeys:
-				   @"red", @"red", 
-				   @"blue_pin.png", @"blue", 
-				   @"black.png", @"black", 
-				   @"brown2.gif", @"brown", 
-				   @"purpleDot.jpg", @"purple", 
-				   @"gray_pin.png", @"grey", 
-				   @"green_pin.png", @"green",
-				   @"white-pin.png", @"white", 
-				   @"claret_pin.jpg", @"claret",
-				   @"bronze.png", @"bronze", 
-				   @"gold_pin.jpg", @"gold", 
-				   @"film_pin.jpg", @"film cell", 
-				   @"gray-pin.png", @"stone", 
-				   @"s_purple.gif", @"purple, white and green", 
-				   @"orange_pin.png", @"brass",
-				   @"yellow_pin.png", @"yellow",
-				   nil] retain];*/
 	
 	mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 420)];
 	
@@ -146,28 +124,6 @@
 	
 }
 
-
-# pragma mark -
-# pragma mark CLLocationManager methods
-
-/*-(void) locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
-{
-	//NSLog(@"MapViewController didUpdateToLocation");
-	[locationManager stopUpdatingLocation];
-	[mapView setShowsUserLocation:YES];
-	
-	MKCoordinateSpan span;
-	span.latitudeDelta = 0.02;
-	span.longitudeDelta = 0.02;
-	
-	MKCoordinateRegion region;
-	region.center = [newLocation coordinate];
-	region.span = span;
-	[mapView setRegion:region];
-	
-	[self addAnnotations:newLocation ];
-}*/
-
 #pragma mark -
 #pragma mark Custom methods
 
@@ -194,16 +150,7 @@
 		[ann setTitle:[plaque inscription]];
 		[ann setSubtitle:[plaque location]];
 		[ann setCoordinate:[plaque locationCoords]];
-		[ann setPlaqueId:[plaque plaqueId]];
-	/*	NSString *colourId = [plaque colour];
-		if(colourId != nil)
-		{
-			if([colourList objectForKey:colourId] != nil)
-			{
-				[ann setPinImg:[colourList objectForKey:colourId]];
-			}
-		}*/
-		
+		[ann setPlaqueId:[plaque plaqueId]];		
 		[mapView addAnnotation:ann];	
 		[ann release];
 	}

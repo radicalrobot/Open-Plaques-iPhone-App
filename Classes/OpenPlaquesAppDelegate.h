@@ -57,9 +57,9 @@
 -(void) storeData:(PlaqueVO *)plaque;
 -(void) retrieveData;
 -(void) makeAPIRequest;
--(id) retrievePlaque:(int) plaqueId;
 -(id) transformManagedObjectToPlaqueVO:(NSManagedObject *) storedPlaque;
 - (NSString *)dataFilePath;
 -(BOOL) userHasAllowedLocationTracking;
+-(void) getPlaquesFromStorage;
 @end
 

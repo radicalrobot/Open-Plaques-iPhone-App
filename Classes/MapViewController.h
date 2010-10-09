@@ -13,12 +13,9 @@
 
 
 @interface MapViewController : UIViewController <MKMapViewDelegate>{
-	MKMapView *mapView;
-	NSDictionary *colourList;
-	CLLocationManager *locationManager;
+	MKMapView *mapView;	CLLocationManager *locationManager;
 }
 
-@property (nonatomic, retain) NSDictionary *colourList;
 
 
 -(void) refresh;
