@@ -10,7 +10,11 @@
 
 
 @interface SplashViewController : UIViewController {
-
+	
 }
+
+-(void) showLocationAlert;
+-(void) showDataRetreivalFailureAlert;
+-(void) showLocationSwitchedOffAlert:(NSString *) message;
 
 @end

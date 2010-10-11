@@ -70,5 +70,47 @@
     [super dealloc];
 }
 
+-(void) showLocationAlert
+{
+	UIAlertView *alert = [[UIAlertView alloc] 
+						  initWithTitle:@"Location Manager" 
+						  message:@"This app requires location services that your device does not support. I'm really sorry." 
+						  delegate:nil 
+						  cancelButtonTitle:@"Understood" 
+						  otherButtonTitles:nil];
+	
+	[alert show];
+	[alert release]; 	
+}
+
+
+
+-(void) showLocationSwitchedOffAlert:(NSString *) message
+{
+	UIAlertView *alert = [[UIAlertView alloc] 
+						  initWithTitle:@"Location Manager" 
+						  message:message
+						  delegate:nil 
+						  cancelButtonTitle:@"Understood" 
+						  otherButtonTitles:nil];
+	
+	[alert show];
+	[alert release]; 	
+}
+
+-(void) showDataRetreivalFailureAlert
+{
+	
+	UIAlertView *alert = [[UIAlertView alloc] 
+						  initWithTitle:@"Open Plaques data connection Error" 
+						  message:@"No new data could be retrieved from Open Plaques at this time." 
+						  delegate:nil 
+						  cancelButtonTitle:@"OK" 
+						  otherButtonTitles:nil];
+	
+	[alert show];
+	[alert release];
+}
+
 
 @end

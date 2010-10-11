@@ -52,7 +52,7 @@
 
 - (NSString *)applicationDocumentsDirectory;
 -(void) createMap;
-- (void) parsePlaques;
+- (void) parsePlaques:(NSData *)plaqueData;
 -(void) storeData;
 -(void) storeData:(PlaqueVO *)plaque;
 -(void) retrieveData;
