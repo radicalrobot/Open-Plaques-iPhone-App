@@ -579,14 +579,17 @@
 				[thePlaque setValue:[NSNumber numberWithDouble:[plaque locationCoords].latitude] forKey:@"latitude"];
 				[thePlaque setValue:[NSNumber numberWithDouble:[plaque locationCoords].longitude] forKey:@"longitude"];
 				
-				NSDateFormatter *df = [[NSDateFormatter alloc] init];
-				[df setDateFormat:@"yyyy-MM-dd"];
-				
-				NSDate *dtErected = [df dateFromString:[plaque dtErected]];
-				//NSLog(@"Saving date last checked as %@", today);
-				[df release];
-				
-				[thePlaque setValue:dtErected forKey:@"erected_date"];
+				if([plaque dtErected] != nil)
+				{
+					NSDateFormatter *df = [[NSDateFormatter alloc] init];
+					[df setDateFormat:@"yyyy-MM-dd"];
+					
+					NSDate *dtErected = [df dateFromString:[plaque dtErected]];
+					//NSLog(@"Saving date last checked as %@", today);
+					[df release];
+					
+					[thePlaque setValue:dtErected forKey:@"erected_date"];
+				}
 				
 				if(storedItems % 75 == 0)
 				{
@@ -661,26 +664,28 @@
 
 -(void) locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
-	//NSLog(@"didUpdateToLocation");
+	NSLog(@"Did update to location");
 	locationAllowed = YES;
-	//NSLog(@"MapViewController didUpdateToLocation");
 	
-	//[locationManager 
-	
-	[locationManager stopUpdatingLocation];
-	currentLocation = newLocation;
-	
-	if(!dataRetrievalRequested)
+//	[locationManager 
+	if (newLocation.horizontalAccuracy > 0.0f &&
+		newLocation.horizontalAccuracy < 120.0f)
 	{
-		NSOperationQueue *queue = [NSOperationQueue new];
-		NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self
-																				selector:@selector(retrieveData)
-																				  object:nil];
+		[locationManager stopUpdatingLocation];
+		currentLocation = newLocation;
 		
-		[queue addOperation:operation];
-		[operation release];	
-		[queue release];
-		dataRetrievalRequested = YES;
+		if(!dataRetrievalRequested)
+		{
+			NSOperationQueue *queue = [NSOperationQueue new];
+			NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self
+																					selector:@selector(retrieveData)
+																					  object:nil];
+			
+			[queue addOperation:operation];
+			[operation release];	
+			[queue release];
+			dataRetrievalRequested = YES;
+		}
 	}
 }
 

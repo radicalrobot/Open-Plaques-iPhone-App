@@ -132,26 +132,27 @@
 -(void)refresh
 {
 	NSLog(@"refresh");
-	UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] 
-										initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];	
-
-	CGRect appFrame = [[UIScreen mainScreen]applicationFrame];
-	int x = (appFrame.size.width/2) - 16;
-	int y = (appFrame.size.height/2) - 16;
-	[spinner setFrame:CGRectMake( x, y, 32, 32)];
-	[spinner startAnimating];
-	
-	[[self view] addSubview:spinner];
 	
 	
 	NSArray *ants = [mapView annotations];
 	[mapView removeAnnotations:ants];
 	
+	OpenPlaquesAppDelegate *appDelegate = (OpenPlaquesAppDelegate *) [[UIApplication sharedApplication] delegate];	
+	if([appDelegate locationAllowed])
+	{
+		locationManager = [appDelegate locationManager];
+		
+		//NSLog(@"Location manager exists");
+		CLLocation *currentLocation = [locationManager location];		
+		[mapView setShowsUserLocation:YES];
+		
+		[mapView setCenterCoordinate:[currentLocation coordinate]];
+	}
+	
+	
+	
 	[self addAnnotations];
 	
-	[spinner removeFromSuperview];
-	
-	[spinner release];
 	NSLog(@"::END:: refresh");	
 }
 
