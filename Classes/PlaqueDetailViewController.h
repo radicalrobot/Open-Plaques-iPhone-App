@@ -40,5 +40,6 @@
 
 -(void)parseFlickrResult;
 -(void)savePlaque;
+-(void)refresh;
 
 @end

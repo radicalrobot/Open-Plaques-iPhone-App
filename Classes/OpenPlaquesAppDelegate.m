@@ -63,7 +63,7 @@
 	}
 	else 
 	{
-		//NSLog(@"location manager location services NOT enabled");
+		NSLog(@"location manager location services NOT enabled");
 		[svc showLocationAlert];
 		[self createMap];
 	}
@@ -229,6 +229,7 @@
 	{
 		[svc showDataRetreivalFailureAlert];
 	}
+	NSLog(@"connectionDidFailWithError");
 	[self createMap];
 }
 
@@ -312,6 +313,7 @@
 		if(![[plaqueDetails objectForKey:@"erected_at"] isKindOfClass:[NSNull class]])
 		{
 			[plaque setDtErected:[plaqueDetails objectForKey:@"erected_at"]];
+			//NSLog(@"Erected at %@",[plaque dtErected]);
 		}
 		
 		NSString *lastModifiedStr = [plaqueDetails objectForKey:@"created_at"];
@@ -350,7 +352,7 @@
 	
 	if(newPlaqueCount > 0)
 	{
-		//NSLog(@"New plaque count = %d", newPlaqueCount);
+		NSLog(@"New plaque count = %d", newPlaqueCount);
 		[self createMap];
 	}
 	[plaqueData release];
@@ -358,14 +360,14 @@
 
 -(void) createMap
 {
-	//NSLog(@"createMap");
+	NSLog(@"createMap");
 	
 	if([navController visibleViewController] != nil)
 	{
-		//NSLog(@"Refreshing Map View");
+		NSLog(@"Refreshing Map View");
 		MapViewController *mvc = (MapViewController *)[navController visibleViewController];
 		[mvc refresh];
-		//NSLog(@"MapView Refreshed");
+		NSLog(@"MapView Refreshed");
 	}
 	else 
 	{
@@ -386,7 +388,8 @@
 {
 	//NSLog(@"retrieveData");
 	currentLocation = [locationManager location];	
-	MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 100000.0, 100000.0);
+	//MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 100000.0, 100000.0);
+	MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 10000.0, 10000.0);
 	CLLocationCoordinate2D northWestCorner, southEastCorner;
 	northWestCorner.latitude  = currentLocation.coordinate.latitude  - (region.span.latitudeDelta  / 2.0);
 	northWestCorner.longitude = currentLocation.coordinate.longitude + (region.span.longitudeDelta / 2.0);
@@ -451,7 +454,7 @@
 		//NSLog(@"Setting last upload date to be %@", today);
 		
 		[today writeToFile:[self dataFilePath] atomically:YES encoding:NSUnicodeStringEncoding error:&error];
-		
+		NSLog(@"Data retrieved");
 		[self performSelectorOnMainThread:@selector(createMap) withObject:nil waitUntilDone:false]; 
 	}
 	
@@ -473,7 +476,13 @@
 	[plaque setInscription:[storedPlaque valueForKey:@"inscription"]];
 	[plaque setLocation:[storedPlaque valueForKey:@"location"]];
 	[plaque setPlaqueId:[storedPlaque valueForKey:@"id"]];
-	[plaque setDtErected:[storedPlaque valueForKey:@"erected_date"]];
+	
+	NSDate *dtErected = [storedPlaque valueForKey:@"erected_date"];
+	NSDateFormatter *df = [[NSDateFormatter alloc] init];
+	[df setDateFormat:@"dd-MM-yyyy"];
+	[plaque setDtErected:[df stringFromDate:dtErected]];
+	[df release];
+	
 	[plaque setOrganization:[storedPlaque valueForKey:@"organisation"]];
 	
 	//NSLog(@"Image url is %@", [storedPlaque valueForKey:@"image_url"]);
@@ -525,63 +534,74 @@
 	//NSLog(@"storing %d plaques from list", [plaquesToSave count]);	
 	if(plaquesToSave != nil)
 	{
-		
-		for(PlaqueVO *plaque in plaquesToSave)
+		@synchronized([self managedObjectContext])
 		{
-			//[self storeData:plaque];
-			int plaqueId = [[plaque plaqueId] intValue];
-			[request setPredicate:[NSPredicate predicateWithFormat:@"(id = %d)", plaqueId]];
-			
-			NSManagedObject *thePlaque = nil;
-			
-			NSArray *objects = [[self managedObjectContext] executeFetchRequest:request error:&error];
-			
-			if(objects == nil)
+			for(PlaqueVO *plaque in plaquesToSave)
 			{
-				NSLog(@"Got an error storing plaque %@", [plaque plaqueId]);
-				continue;
+				//[self storeData:plaque];
+				int plaqueId = [[plaque plaqueId] intValue];
+				[request setPredicate:[NSPredicate predicateWithFormat:@"(id = %d)", plaqueId]];
+				
+				NSManagedObject *thePlaque = nil;
+				
+				NSArray *objects = [[self managedObjectContext] executeFetchRequest:request error:&error];
+				
+				if(objects == nil)
+				{
+					NSLog(@"Got an error storing plaque %@", [plaque plaqueId]);
+					continue;
+				}
+				
+				if([objects count] > 0)
+					thePlaque	= [objects objectAtIndex:0];
+				else
+					thePlaque = [NSEntityDescription insertNewObjectForEntityForName:@"Plaque" inManagedObjectContext:[self managedObjectContext]];
+				
+				[thePlaque setValue:[NSNumber numberWithInt:plaqueId] forKey:@"id"];
+				[thePlaque setValue:[NSString stringWithFormat:@"%@", [plaque colour]] forKey:@"colour"];
+				[thePlaque setValue:[plaque inscription] forKey:@"inscription"];
+				
+				if([plaque organization] != nil)
+					[thePlaque setValue:[plaque organization] forKey:@"organisation"];
+				
+				if([plaque location] != nil
+				   && ![[plaque location] isKindOfClass:[NSNull class]])
+				{
+					[thePlaque setValue:[plaque location] forKey:@"location"];
+				}
+				
+				
+				if([plaque imgUrl] != nil)
+					[thePlaque setValue:[plaque imgUrl] forKey:@"image_url"];
+				if([plaque ownerName] != nil)
+					[thePlaque setValue:[plaque ownerName] forKey:@"owner_name"];
+				
+				[thePlaque setValue:[NSNumber numberWithDouble:[plaque locationCoords].latitude] forKey:@"latitude"];
+				[thePlaque setValue:[NSNumber numberWithDouble:[plaque locationCoords].longitude] forKey:@"longitude"];
+				
+				NSDateFormatter *df = [[NSDateFormatter alloc] init];
+				[df setDateFormat:@"yyyy-MM-dd"];
+				
+				NSDate *dtErected = [df dateFromString:[plaque dtErected]];
+				//NSLog(@"Saving date last checked as %@", today);
+				[df release];
+				
+				[thePlaque setValue:dtErected forKey:@"erected_date"];
+				
+				if(storedItems % 75 == 0)
+				{
+					//NSLog(@"Saving %d items", storedItems);
+					[[self managedObjectContext] save:&error];
+				}
+				
+				storedItems++;
 			}
 			
-			if([objects count] > 0)
-				thePlaque	= [objects objectAtIndex:0];
-			else
-				thePlaque = [NSEntityDescription insertNewObjectForEntityForName:@"Plaque" inManagedObjectContext:[self managedObjectContext]];
-			
-			[thePlaque setValue:[NSNumber numberWithInt:plaqueId] forKey:@"id"];
-			[thePlaque setValue:[NSString stringWithFormat:@"%@", [plaque colour]] forKey:@"colour"];
-			[thePlaque setValue:[plaque inscription] forKey:@"inscription"];
-			
-			if([plaque organization] != nil)
-				[thePlaque setValue:[plaque organization] forKey:@"organisation"];
-			
-			if([plaque location] != nil
-			   && ![[plaque location] isKindOfClass:[NSNull class]])
-			{
-				[thePlaque setValue:[plaque location] forKey:@"location"];
-			}
-			
-			
-			if([plaque imgUrl] != nil)
-				[thePlaque setValue:[plaque imgUrl] forKey:@"image_url"];
-			if([plaque ownerName] != nil)
-				[thePlaque setValue:[plaque ownerName] forKey:@"owner_name"];
-			
-			[thePlaque setValue:[NSNumber numberWithDouble:[plaque locationCoords].latitude] forKey:@"latitude"];
-			[thePlaque setValue:[NSNumber numberWithDouble:[plaque locationCoords].longitude] forKey:@"longitude"];
-			
-			if(storedItems % 75 == 0)
-			{
-				//NSLog(@"Saving %d items", storedItems);
-				[[self managedObjectContext] save:&error];
-			}
-			
-			storedItems++;
+			//NSLog(@"Saving %d items", storedItems);
+			[[self managedObjectContext] save:&error];
+			//	[error release];
+			[request release];
 		}
-		
-		//NSLog(@"Saving %d items", storedItems);
-		[[self managedObjectContext] save:&error];
-	//	[error release];
-		[request release];
 	}
 	
 	//[toSave release];
@@ -613,7 +633,7 @@
 	NSString *urlStr = kDataURL;
 	if(maxUploadDate != nil)
 		urlStr = [NSString stringWithFormat:@"%@?since=%@", kDataURL, maxUploadDate];
-	//NSLog(@"Requesting data from the API with url %@", urlStr);
+	NSLog(@"Requesting data from the API with url %@", urlStr);
 	
 	
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
@@ -684,6 +704,7 @@
 	{
 		locationAllowed = NO;
 		[svc showLocationSwitchedOffAlert:message];
+		NSLog(@"location off");
 		[self createMap];
 	}
 }

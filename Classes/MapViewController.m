@@ -26,6 +26,7 @@
 	NSLog(@"viewDidLoad");
 	[self setTitle:@"Plaques Near You"];	
 	
+	
 	mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 420)];
 	
 	[mapView setDelegate:self];
@@ -166,6 +167,7 @@
 		for (NSString *key in [list allKeys]) 
 		{
 			PlaqueVO *plaque = [list objectForKey: key];
+			//NSLog(@"Adding plaque %@ erected on %@", [plaque location], [plaque dtErected]);
 			[self addAnnotation:plaque];
 		}
 		[list release];

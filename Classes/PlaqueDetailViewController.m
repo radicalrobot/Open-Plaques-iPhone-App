@@ -22,7 +22,7 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 	[self setTitle:@"Plaque Detail"];
-	
+		
 	[[self view] setBackgroundColor:[UIColor whiteColor]];
 	
 	OpenPlaquesAppDelegate *appDelegate = (OpenPlaquesAppDelegate *) [[UIApplication sharedApplication] delegate];
@@ -30,6 +30,7 @@
 	PlaqueVO *savedPlaque = [list objectForKey:plaqueId];
 	//	NSLog(@"Viewing details of plaque %@ with inscription %@, location %@", [savedPlaque plaqueId], [savedPlaque inscription], [savedPlaque location]);
 	plaque = [savedPlaque copy];	
+
 	//NSLog(@"Copied saved plaque %@ with inscription %@, location %@", [plaque plaqueId], [plaque inscription], [plaque location]);
 	
 	plaquePhotoOwnerLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 220, 260, 21)];
@@ -134,23 +135,8 @@
 	 [scrollView1 addSubview:erectedLabel];
 	
 	
-	NSString *erectedDateStr = nil;
-	
-	if([plaque dtErected] != nil
-	   && ![[plaque dtErected] isKindOfClass:[NSNull class]])
-	{
-
-		NSDateFormatter *df = [[NSDateFormatter alloc] init];
-		[df setDateFormat:@"yyyy-MM-dd'T'hh:mm:ss'Z'"];	
-		NSDate *erectedDate = [df dateFromString:[plaque dtErected]];
-		//NSLog(@"erected date is %@", erectedDate);
-		[df setDateStyle:NSDateFormatterLongStyle];
-		erectedDateStr = 	[df stringFromDate:erectedDate];	
-		//NSLog(@"erected date string is %@", erectedDateStr);			   
-		[df release];
-	}
-	
-	
+	NSString *erectedDateStr = [plaque dtErected];
+	NSLog(@"DtErected %@", erectedDateStr);
 	NSString *erectedStr = nil;
 	 if([plaque organization] != nil
 	 && erectedDateStr != nil)
@@ -334,6 +320,11 @@
 	OpenPlaquesAppDelegate *appDelegate = (OpenPlaquesAppDelegate *) [[UIApplication sharedApplication] delegate];
 	[appDelegate storeData:plaque];
 	
+}
+
+-(void)refresh
+{
+	// do nothing here
 }
 
 

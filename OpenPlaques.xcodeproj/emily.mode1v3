@@ -275,7 +275,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>11</integer>
+									<integer>5</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
@@ -330,7 +330,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>A110BA0A1263839100B4DE8C</string>
+										<string>A110BAF11263A7AA00B4DE8C</string>
 										<key>history</key>
 										<array>
 											<string>A1A3340C12169DE100F07720</string>
@@ -343,15 +343,15 @@
 											<string>A198BC23123D45D2005F3F4E</string>
 											<string>A198C1D31242BB64005F3F4E</string>
 											<string>A1457B8C126080E100586604</string>
-											<string>A1457B8E126080E100586604</string>
-											<string>A1457BD7126087D700586604</string>
-											<string>A1457C371260D51A00586604</string>
-											<string>A1457C741260DA0400586604</string>
 											<string>A110B9A812637E6600B4DE8C</string>
 											<string>A110B9C41263802C00B4DE8C</string>
-											<string>A110B9C51263802C00B4DE8C</string>
-											<string>A110BA031263836900B4DE8C</string>
-											<string>A110BA041263836900B4DE8C</string>
+											<string>A110BA1412638CB600B4DE8C</string>
+											<string>A110BA4B1263959400B4DE8C</string>
+											<string>A110BA9D12639CAF00B4DE8C</string>
+											<string>A110BAB212639E1100B4DE8C</string>
+											<string>A110BAD31263A11A00B4DE8C</string>
+											<string>A110BAE01263A20000B4DE8C</string>
+											<string>A110BAE11263A20000B4DE8C</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -549,13 +549,13 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>A110BA0B1263839100B4DE8C</string>
+		<string>1C530D57069F1CE1000CFCEE</string>
 		<string>A110B9C91263802C00B4DE8C</string>
 		<string>A110B9B512637E6600B4DE8C</string>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>A192FB1A120DDBA0000D15AD</string>
-		<string>/Users/emily/Development/iphone/OpenPlaquesV1/OpenPlaques.xcodeproj</string>
+		<string>1CD10A99069EF8BA00B06720</string>
 		<string>1C78EAAD065D492600B07095</string>
+		<string>/Users/emily/Development/iphone/OpenPlaquesV1/OpenPlaques.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>4 55 1436 823 0 0 1440 878 </string>
@@ -574,14 +574,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>SplashViewController.h</string>
+								<string>MapViewController.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -598,6 +596,8 @@
 							<string>428pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -774,7 +774,7 @@
 			<key>WindowToolGUID</key>
 			<string>1CD10A99069EF8BA00B06720</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
@@ -855,8 +855,8 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C530D57069F1CE1000CFCEE</string>
-				<string>A1D319E912612D4000436B49</string>
-				<string>A1D319EA12612D4000436B49</string>
+				<string>A110BADC1263A1FC00B4DE8C</string>
+				<string>A110BADD1263A1FC00B4DE8C</string>
 				<string>1CDD528C0622207200134675</string>
 				<string>1CD0528E0623707200166675</string>
 			</array>
@@ -865,7 +865,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C530D57069F1CE1000CFCEE</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>
