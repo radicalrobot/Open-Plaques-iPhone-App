@@ -30,6 +30,8 @@
 	CLLocation *currentLocation;
 	NSMutableArray *plaquesToSave;
 	
+	int locationUpdateCount;
+	
 	BOOL locationAllowed;
 	BOOL dataRetrievalRequested;
     

@@ -664,13 +664,17 @@
 
 -(void) locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
+	++locationUpdateCount;
 	NSLog(@"Did update to location");
 	locationAllowed = YES;
 	
+	NSLog(@"Horizontal accuracy is %0.2f", newLocation.horizontalAccuracy);
 //	[locationManager 
-	if (newLocation.horizontalAccuracy > 0.0f &&
-		newLocation.horizontalAccuracy < 120.0f)
+	if ((newLocation.horizontalAccuracy > 0.0f &&
+		newLocation.horizontalAccuracy < 200.0f)
+		|| locationUpdateCount > 2)
 	{
+		locationUpdateCount = 0;
 		[locationManager stopUpdatingLocation];
 		currentLocation = newLocation;
 		
