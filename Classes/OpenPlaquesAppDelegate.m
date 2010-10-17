@@ -214,12 +214,16 @@
 -(void) connectionDidFinishLoading:(NSURLConnection *)connection{
 	
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-	[self parsePlaques:receivedData];
 	
-	if([plaquesToSave count] > 0)
-	{
-		[self storeData];
-	}
+	NSOperationQueue *queue = [NSOperationQueue new];
+	NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self
+																			selector:@selector(parsePlaques:)
+																			  object:receivedData];
+	
+	[queue addOperation:operation];
+	[operation release];	
+	[queue release];
+	//[self parsePlaques:receivedData];
 }
 
 -(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
@@ -230,7 +234,8 @@
 		[svc showDataRetreivalFailureAlert];
 	}
 	//NSLog(@"connectionDidFailWithError");
-	[self createMap];
+	//[self createMap];
+	[self performSelectorOnMainThread:@selector(createMap) withObject:nil waitUntilDone:false]; 
 }
 
 # pragma mark -
@@ -254,6 +259,8 @@
 	[maxUploadDate writeToFile:[self dataFilePath] atomically:YES encoding:NSUnicodeStringEncoding error:&error];
 	
 	// now go and fetch everything that happened since last time
+	//[self performSelectorOnMainThread:@selector(makeAPIRequest) withObject:nil waitUntilDone:false]; 
+
 	[self makeAPIRequest];
 	
 }
@@ -278,7 +285,8 @@
 	if(jsonError) {
 		//NSLog(@"Json has problems %@", jsonError);
 		[jsonError release];
-		[self createMap];
+		[self performSelectorOnMainThread:@selector(createMap) withObject:nil waitUntilDone:false]; 
+		//[self createMap];
 		return;
 	}
 	[jsonError release];
@@ -354,14 +362,21 @@
 	if(newPlaqueCount > 0)
 	{
 		//NSLog(@"New plaque count = %d", newPlaqueCount);
-		[self createMap];
+		//[self createMap];
+		[self performSelectorOnMainThread:@selector(createMap) withObject:nil waitUntilDone:false]; 
 	}
 	[plaqueData release];
 }
 
 -(void) createMap
 {
-	//NSLog(@"createMap");
+	//NSLog(@"createMap");\
+	
+	if([plaquesToSave count] > 0)
+	{
+		[self storeData];
+	}
+	
 	
 	if([navController visibleViewController] != nil)
 	{
@@ -405,7 +420,7 @@
 	NSError *error;
 	
 	int numRecords = [[self managedObjectContext] countForFetchRequest:request error:&error];	
-	//NSLog(@"The number of record are %d", numRecords);
+	NSLog(@"The number of record are %d", numRecords);
 	NSString *filePath = [self dataFilePath];
 	if([[NSFileManager defaultManager] fileExistsAtPath:filePath])
 	{
@@ -416,7 +431,7 @@
 	if(numRecords < 3000)
 	{
 		[request release];
-		
+		//[self getPlaquesFromStorage];
 		[self performSelectorOnMainThread:@selector(getPlaquesFromStorage) withObject:nil waitUntilDone:false]; 
 	}
 	else
@@ -440,6 +455,7 @@
 		[request release];	
 		//NSLog(@"retrieved %d plaques from storage", [plaqueList count]);
 		
+		//[self makeAPIRequest];
 		[self performSelectorOnMainThread:@selector(makeAPIRequest) withObject:nil waitUntilDone:false]; 
 		
 		//NSLog(@"Max upload date is %@", maxUploadDate);

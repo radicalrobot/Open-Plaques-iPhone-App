@@ -3,16 +3,16 @@
 	1D3623240D0F684500981E51 /* OpenPlaquesAppDelegate.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1109, 884}}";
-			sepNavSelRange = "{802, 0}";
-			sepNavVisRange = "{361, 1691}";
+			sepNavSelRange = "{1731, 0}";
+			sepNavVisRange = "{464, 1594}";
 			sepNavWindowFrame = "{{19, 91}, {1149, 782}}";
 		};
 	};
 	1D3623250D0F684500981E51 /* OpenPlaquesAppDelegate.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1109, 9282}}";
-			sepNavSelRange = "{5998, 0}";
-			sepNavVisRange = "{5235, 1182}";
+			sepNavIntBoundsRect = "{{0, 0}, {1090, 9438}}";
+			sepNavSelRange = "{10767, 0}";
+			sepNavVisRange = "{9947, 1168}";
 			sepNavWindowFrame = "{{65, 49}, {1149, 782}}";
 		};
 	};
@@ -193,7 +193,7 @@
 			A134342112201AD100680410 /* PlaqueViewController.m:72 */,
 			A110BA6D126399F500B4DE8C /* MapViewController.m:118 */,
 			A110BA8812639B4600B4DE8C /* PlaqueDetailViewController.m:24 */,
-			A110BAF51263A89200B4DE8C /* OpenPlaquesAppDelegate.m:590 */,
+			A110BAF51263A89200B4DE8C /* OpenPlaquesAppDelegate.m:606 */,
 		);
 		codeSenseManager = A192FB0B120DDB52000D15AD /* Code sense */;
 		executables = (
@@ -435,7 +435,7 @@
 		fRef = 28C3AD890F43EF2300507BA6 /* OpenPlaques.xcdatamodel */;
 		fallbackIsa = PBXBookmark;
 	};
-	A110BAF51263A89200B4DE8C /* OpenPlaquesAppDelegate.m:590 */ = {
+	A110BAF51263A89200B4DE8C /* OpenPlaquesAppDelegate.m:606 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -447,7 +447,7 @@
 		functionName = "-saveDataWithOperation";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 590;
+		lineNumber = 606;
 		location = OpenPlaques;
 		modificationTime = 308521334.221764;
 		originalNumberOfMultipleMatches = 1;
@@ -616,7 +616,7 @@
 		fRef = 1D3623250D0F684500981E51 /* OpenPlaquesAppDelegate.m */;
 		name = "OpenPlaquesAppDelegate.m: 693";
 		rLen = 0;
-		rLoc = 20601;
+		rLoc = 21366;
 		rType = 0;
 		vrLen = 1361;
 		vrLoc = 20599;
@@ -626,7 +626,7 @@
 		fRef = 1D3623250D0F684500981E51 /* OpenPlaquesAppDelegate.m */;
 		name = "OpenPlaquesAppDelegate.m: 670";
 		rLen = 0;
-		rLoc = 20545;
+		rLoc = 21310;
 		rType = 0;
 		vrLen = 1428;
 		vrLoc = 20599;
@@ -636,7 +636,7 @@
 		fRef = 1D3623250D0F684500981E51 /* OpenPlaquesAppDelegate.m */;
 		name = "OpenPlaquesAppDelegate.m: 672";
 		rLen = 0;
-		rLoc = 20601;
+		rLoc = 21366;
 		rType = 0;
 		vrLen = 1089;
 		vrLoc = 20299;
@@ -646,7 +646,7 @@
 		fRef = 1D3623250D0F684500981E51 /* OpenPlaquesAppDelegate.m */;
 		name = "OpenPlaquesAppDelegate.m: 633";
 		rLen = 0;
-		rLoc = 19615;
+		rLoc = 20380;
 		rType = 0;
 		vrLen = 1095;
 		vrLoc = 19539;
@@ -656,7 +656,7 @@
 		fRef = 1D3623250D0F684500981E51 /* OpenPlaquesAppDelegate.m */;
 		name = "OpenPlaquesAppDelegate.m: 633";
 		rLen = 0;
-		rLoc = 19615;
+		rLoc = 20380;
 		rType = 0;
 		vrLen = 1097;
 		vrLoc = 19539;
@@ -666,7 +666,7 @@
 		fRef = 1D3623250D0F684500981E51 /* OpenPlaquesAppDelegate.m */;
 		name = "OpenPlaquesAppDelegate.m: 633";
 		rLen = 0;
-		rLoc = 19615;
+		rLoc = 20380;
 		rType = 0;
 		vrLen = 1149;
 		vrLoc = 19539;
@@ -676,7 +676,7 @@
 		fRef = 1D3623250D0F684500981E51 /* OpenPlaquesAppDelegate.m */;
 		name = "OpenPlaquesAppDelegate.m: 633";
 		rLen = 0;
-		rLoc = 19615;
+		rLoc = 20380;
 		rType = 0;
 		vrLen = 1149;
 		vrLoc = 19539;
@@ -686,7 +686,7 @@
 		fRef = 1D3623250D0F684500981E51 /* OpenPlaquesAppDelegate.m */;
 		name = "OpenPlaquesAppDelegate.m: 633";
 		rLen = 0;
-		rLoc = 19615;
+		rLoc = 20380;
 		rType = 0;
 		vrLen = 1149;
 		vrLoc = 19539;
@@ -696,7 +696,7 @@
 		fRef = 1D3623250D0F684500981E51 /* OpenPlaquesAppDelegate.m */;
 		name = "OpenPlaquesAppDelegate.m: 633";
 		rLen = 0;
-		rLoc = 19615;
+		rLoc = 20380;
 		rType = 0;
 		vrLen = 1149;
 		vrLoc = 19539;
@@ -716,7 +716,7 @@
 		fRef = 1D3623250D0F684500981E51 /* OpenPlaquesAppDelegate.m */;
 		name = "OpenPlaquesAppDelegate.m: 260";
 		rLen = 41;
-		rLoc = 7123;
+		rLoc = 7576;
 		rType = 0;
 		vrLen = 1298;
 		vrLoc = 8845;
@@ -765,7 +765,7 @@
 		fRef = 1D3623250D0F684500981E51 /* OpenPlaquesAppDelegate.m */;
 		name = "OpenPlaquesAppDelegate.m: 216";
 		rLen = 0;
-		rLoc = 5998;
+		rLoc = 6310;
 		rType = 0;
 		vrLen = 1182;
 		vrLoc = 5235;
@@ -917,9 +917,9 @@
 	};
 	A192FB0D120DDB73000D15AD /* MapViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1090, 2197}}";
-			sepNavSelRange = "{3566, 0}";
-			sepNavVisRange = "{3181, 1355}";
+			sepNavIntBoundsRect = "{{0, 0}, {1090, 2288}}";
+			sepNavSelRange = "{3905, 0}";
+			sepNavVisRange = "{3181, 1552}";
 			sepNavWindowFrame = "{{19, 91}, {1149, 782}}";
 		};
 	};
