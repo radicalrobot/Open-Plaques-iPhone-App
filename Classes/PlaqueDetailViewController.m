@@ -136,7 +136,7 @@
 	
 	
 	NSString *erectedDateStr = [plaque dtErected];
-	NSLog(@"DtErected %@", erectedDateStr);
+	//NSLog(@"DtErected %@", erectedDateStr);
 	NSString *erectedStr = nil;
 	 if([plaque organization] != nil
 	 && erectedDateStr != nil)
@@ -198,6 +198,7 @@
 	}
 	else 
 	{
+		[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 		NSString *urlStr = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=%@&machine_tags=openplaques:id=%@&extras=url_s,url_t,owner_name", kFlickrApiKey, [plaque plaqueId]];
 		//	NSLog(@"Requesting data from %@", urlStr);
 		NSURL *url = [NSURL URLWithString: urlStr];
@@ -348,7 +349,7 @@
 -(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 	
-	NSLog(@"Error Loading");
+	//NSLog(@"Error Loading");
 }
 
 

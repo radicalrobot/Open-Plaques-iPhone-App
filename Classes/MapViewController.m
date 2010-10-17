@@ -23,7 +23,7 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-	NSLog(@"viewDidLoad");
+	//NSLog(@"viewDidLoad");
 	[self setTitle:@"Plaques Near You"];	
 	
 	
@@ -53,10 +53,10 @@
 		region.span = span;
 		[mapView setRegion:region];
 		
-		[self addAnnotations];
+		[self addAnnotations:currentLocation];
 	}
     [super viewDidLoad];
-	NSLog(@"::END::viewDidLoad");
+	//NSLog(@"::END::viewDidLoad");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -132,33 +132,22 @@
 -(void)refresh
 {
 	NSLog(@"refresh");
-	
-	
-	NSArray *ants = [mapView annotations];
+	NSMutableArray *ants = [[NSMutableArray alloc] initWithArray:[mapView annotations]];
+	NSMutableArray *antsToRemove = [[NSMutableArray alloc] init];
+	for(int idx = 0; idx < [ants count]; ++idx)
+	{
+		if([[ants objectAtIndex:idx] isKindOfClass:[MKUserLocation class]])
+			[antsToRemove addObject:[ants objectAtIndex:idx]];	
+	}
+	[ants removeObjectsInArray:antsToRemove];
 	[mapView removeAnnotations:ants];
 	
-	OpenPlaquesAppDelegate *appDelegate = (OpenPlaquesAppDelegate *) [[UIApplication sharedApplication] delegate];	
-	if([appDelegate locationAllowed])
-	{
-		locationManager = [appDelegate locationManager];
-		
-		//NSLog(@"Location manager exists");
-		CLLocation *currentLocation = [locationManager location];		
-		[mapView setShowsUserLocation:YES];
-		
-		[mapView setCenterCoordinate:[currentLocation coordinate]];
-	}
-	
-	
-	
-	[self addAnnotations];
-	
-	NSLog(@"::END:: refresh");	
+	[self addAnnotations:[locationManager location]];	
 }
 
--(void) addAnnotations
+-(void) addAnnotations:(CLLocation *)location
 {
-	NSLog(@"addAnnotations");		
+	//NSLog(@"addAnnotations");		
 	OpenPlaquesAppDelegate *appDelegate = (OpenPlaquesAppDelegate *) [[UIApplication sharedApplication] delegate];
 	NSDictionary *list = [[NSDictionary alloc] initWithDictionary:[appDelegate plaqueList]];
 	//NSLog(@"There are %d plaques to add to the map", [list count]);
@@ -173,7 +162,7 @@
 		}
 		[list release];
 	}
-	NSLog(@"::END:: addAnnotations");	
+	//NSLog(@"::END:: addAnnotations");	
 }
 
 -(void) addAnnotation:(PlaqueVO *)plaque

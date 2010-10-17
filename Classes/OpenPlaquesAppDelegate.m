@@ -27,7 +27,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
 	
-	NSLog(@"didFinishLaunchingWithOptions");
+	//NSLog(@"didFinishLaunchingWithOptions");
 	// Override point for customization after application launch.
     [window makeKeyAndVisible];
 	
@@ -63,7 +63,7 @@
 	}
 	else 
 	{
-		NSLog(@"location manager location services NOT enabled");
+		//NSLog(@"location manager location services NOT enabled");
 		[svc showLocationAlert];
 		[self createMap];
 	}
@@ -212,8 +212,8 @@
 }
 
 -(void) connectionDidFinishLoading:(NSURLConnection *)connection{
-	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 	
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 	[self parsePlaques:receivedData];
 	
 	if([plaquesToSave count] > 0)
@@ -229,7 +229,7 @@
 	{
 		[svc showDataRetreivalFailureAlert];
 	}
-	NSLog(@"connectionDidFailWithError");
+	//NSLog(@"connectionDidFailWithError");
 	[self createMap];
 }
 
@@ -240,7 +240,7 @@
 
 -(void) getPlaquesFromStorage
 {	
-	NSLog(@"getPlaquesFromStorage");
+	//NSLog(@"getPlaquesFromStorage");
 	NSString* path = [[NSBundle mainBundle] pathForResource:@"plaques" 
 													 ofType:@"json"];
 	
@@ -260,9 +260,8 @@
 
 -(void) parsePlaques:(NSData *)plaqueData
 {
-	NSLog(@"parsePlaques");
+	//NSLog(@"parsePlaques");
 //(@"Parsing retrieved data as plaques");
-	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 	SBJSON *jsonParser = [[SBJSON alloc] init];
 	
 	NSString *jsonString = [[NSString alloc] 
@@ -277,7 +276,7 @@
 	[jsonParser release];
 	
 	if(jsonError) {
-		NSLog(@"Json has problems %@", jsonError);
+		//NSLog(@"Json has problems %@", jsonError);
 		[jsonError release];
 		[self createMap];
 		return;
@@ -288,6 +287,7 @@
 	
 	int newPlaqueCount = 0;
 	
+	//NSLog(@"parsingPlaques");
 	NSDateFormatter *df = [[NSDateFormatter alloc] init];
 	[df setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
 	for(int i = 0; i< [results count]; ++i)
@@ -350,9 +350,10 @@
 	}
 	[df release];
 	
+	//NSLog(@"plaques parsed");
 	if(newPlaqueCount > 0)
 	{
-		NSLog(@"New plaque count = %d", newPlaqueCount);
+		//NSLog(@"New plaque count = %d", newPlaqueCount);
 		[self createMap];
 	}
 	[plaqueData release];
@@ -360,19 +361,18 @@
 
 -(void) createMap
 {
-	NSLog(@"createMap");
+	//NSLog(@"createMap");
 	
 	if([navController visibleViewController] != nil)
 	{
-		NSLog(@"Refreshing Map View");
+		//NSLog(@"Refreshing Map View");
 		MapViewController *mvc = (MapViewController *)[navController visibleViewController];
 		[mvc refresh];
-		NSLog(@"MapView Refreshed");
+		//NSLog(@"MapView Refreshed");
 	}
 	else 
 	{
 		//NSLog(@"createMap");
-		[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];		
 		MapViewController *mvc = [[MapViewController alloc]init];
 		[[mvc view] setFrame:[[UIScreen mainScreen] applicationFrame]];	
 		// Override point for customization after app launch  
@@ -396,8 +396,6 @@
 	southEastCorner.latitude  = currentLocation.coordinate.latitude  + (region.span.latitudeDelta  / 2.0);
 	southEastCorner.longitude = currentLocation.coordinate.longitude - (region.span.longitudeDelta / 2.0);
 	
-	//NSLog(@"retrieveData");
-	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];	
 	//	NSLog(@"Retrieving data");
 	NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Plaque" inManagedObjectContext:[self managedObjectContext]];
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -407,7 +405,7 @@
 	NSError *error;
 	
 	int numRecords = [[self managedObjectContext] countForFetchRequest:request error:&error];	
-	NSLog(@"The number of record are %d", numRecords);
+	//NSLog(@"The number of record are %d", numRecords);
 	NSString *filePath = [self dataFilePath];
 	if([[NSFileManager defaultManager] fileExistsAtPath:filePath])
 	{
@@ -440,7 +438,7 @@
 		}
 		
 		[request release];	
-		NSLog(@"retrieved %d plaques from storage", [plaqueList count]);
+		//NSLog(@"retrieved %d plaques from storage", [plaqueList count]);
 		
 		[self performSelectorOnMainThread:@selector(makeAPIRequest) withObject:nil waitUntilDone:false]; 
 		
@@ -454,7 +452,7 @@
 		//NSLog(@"Setting last upload date to be %@", today);
 		
 		[today writeToFile:[self dataFilePath] atomically:YES encoding:NSUnicodeStringEncoding error:&error];
-		NSLog(@"Data retrieved");
+		//NSLog(@"Data retrieved");
 		[self performSelectorOnMainThread:@selector(createMap) withObject:nil waitUntilDone:false]; 
 	}
 	
@@ -463,7 +461,7 @@
 							  
 - (NSString *)dataFilePath
 {
-	NSLog(@"dataFilePath");
+	//NSLog(@"dataFilePath");
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *documentsDirectory = [paths objectAtIndex:0];
 	return [documentsDirectory stringByAppendingPathComponent:kFileName];
@@ -507,7 +505,7 @@
 
 - (void) storeData
 {	
-	NSLog(@"Store data %d", [plaquesToSave count]);
+	//NSLog(@"Store data %d", [plaquesToSave count]);
 	//NSArray *toSave = [[NSArray alloc]initWithArray:plaquesToSave];
 	//[plaquesToSave removeAllObjects];
 
@@ -523,7 +521,7 @@
 }
 
 -(void)saveDataWithOperation{
-	NSLog(@"saveDataWithOperation");
+	//NSLog(@"saveDataWithOperation");
 	NSError *error;
 	int storedItems = 0;
 	
@@ -548,7 +546,7 @@
 				
 				if(objects == nil)
 				{
-					NSLog(@"Got an error storing plaque %@", [plaque plaqueId]);
+					//NSLog(@"Got an error storing plaque %@", [plaque plaqueId]);
 					continue;
 				}
 				
@@ -619,7 +617,7 @@
 	//NSLog(@"Saving date last checked as %@", today);
 	[today writeToFile:[self dataFilePath] atomically:YES encoding:NSUnicodeStringEncoding error:&dateError];	
 	[df release];
-	NSLog(@"Data saved");
+	//NSLog(@"Data saved");
 }
 
 -(void) storeData:(PlaqueVO *)plaque
@@ -632,11 +630,11 @@
 
 -(void) makeAPIRequest
 {
-	NSLog(@"makeAPIRequest");
+	//NSLog(@"makeAPIRequest");
 	NSString *urlStr = kDataURL;
 	if(maxUploadDate != nil)
 		urlStr = [NSString stringWithFormat:@"%@?since=%@", kDataURL, maxUploadDate];
-	NSLog(@"Requesting data from the API with url %@", urlStr);
+	//NSLog(@"Requesting data from the API with url %@", urlStr);
 	
 	
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
@@ -665,31 +663,21 @@
 -(void) locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
 	++locationUpdateCount;
-	NSLog(@"Did update to location");
-	locationAllowed = YES;
 	
-	NSLog(@"Horizontal accuracy is %0.2f", newLocation.horizontalAccuracy);
-//	[locationManager 
-	if ((newLocation.horizontalAccuracy > 0.0f &&
-		newLocation.horizontalAccuracy < 200.0f)
-		|| locationUpdateCount > 2)
+	locationAllowed = YES;
+	currentLocation = newLocation;
+	
+	if(!dataRetrievalRequested)
 	{
-		locationUpdateCount = 0;
-		[locationManager stopUpdatingLocation];
-		currentLocation = newLocation;
-		
-		if(!dataRetrievalRequested)
-		{
-			NSOperationQueue *queue = [NSOperationQueue new];
-			NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self
+		NSOperationQueue *queue = [NSOperationQueue new];
+		NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self
 																					selector:@selector(retrieveData)
 																					  object:nil];
 			
-			[queue addOperation:operation];
-			[operation release];	
-			[queue release];
-			dataRetrievalRequested = YES;
-		}
+		[queue addOperation:operation];
+		[operation release];	
+		[queue release];
+		dataRetrievalRequested = YES;
 	}
 }
 
@@ -713,7 +701,7 @@
 	{
 		locationAllowed = NO;
 		[svc showLocationSwitchedOffAlert:message];
-		NSLog(@"location off");
+		//NSLog(@"location off");
 		[self createMap];
 	}
 }
